@@ -14,8 +14,8 @@ import { EditProductController } from "./controller/product/EditProductControlle
 
 import { CreateCategoryController } from "./controller/category/CreateCategoryController";
 import { ListCategoryController } from "./controller/category/ListCategoryController";
-import { DeleteCategoryController } from "./controller/category/DeleteCatgoryControlller";
-import { EditCategoryrController } from "./controller/category/EditCategoryController";
+import { DeleteCategoryController } from "./controller/category/DeleteCategoryController";
+import { EditCategoryController } from "./controller/category/EditCategoryController";
 
 
 const createUserController = new CreateUserController();
@@ -31,7 +31,7 @@ const editProductController = new EditProductController();
 const createCategorycController =new CreateCategoryController();
 const listCategoryController = new ListCategoryController();
 const delteCategoryController =new DeleteCategoryController();
-const editCategoryController =new EditCategoryrController();
+const editCategoryController =new EditCategoryController();
 
 const router = Router();
 router.post("/users",createUserController.handle);
