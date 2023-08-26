@@ -9,7 +9,7 @@ class UpdateUserController {
 
     const updateUserService = new UpdateUserService();
 
-    const user = await updateUserService.execute({id,name,email,admin,password,});
+    const user = await updateUserService.execute({id,name,email,admin,password});
 
     return response.json(user);
   }
