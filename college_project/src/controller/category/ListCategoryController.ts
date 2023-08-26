@@ -1,17 +1,13 @@
 import {Request, Response} from "express";
- class ListCategoryController{
-    async handle(request: Request, response:Response, ){
+import { ListCategoryService } from "../../service/category/List CategoryService";
 
-        const categories=[
-            {
-                name:"sucos",
-                area:"liquidos"
-            },
-            {
-                name:"enlatados",
-                area:"peixes"
-            }
-        ];
+ class ListCategoryController{
+    async handle(request: Request, response:Response){
+
+        const listCategoriesService = new ListCategoryService();
+
+        const categories = await listCategoriesService.execute();
+        
         return response.json(categories);
     }
  }
