@@ -42,12 +42,12 @@ router.put("/users/:id",editUserController.handle);
 router.post("/product",createProductController.handle);
 router.get("/product",listProductController.handle);
 router.delete("/product/:id",deleteProductController.handle);
-router.put("/product/:id",editProductController.handle);
+router.put("/product/",editProductController.handle);
 
 router.post("/category",createCategorycController.handle);
 router.get("/category",listCategoryController.handle);
 router.delete("/category/:id",delteCategoryController.handle);
-router.put("/category/:id",editCategoryController.handle);
+router.put("/category/",editCategoryController.handle);
 
 export {router}
  

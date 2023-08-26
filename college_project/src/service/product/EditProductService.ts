@@ -6,7 +6,7 @@ interface InterfaceEditProduct{
 
 class EditProductService{
     async execute({name,category,price}:InterfaceEditProduct){
-        if(!name){
+        if(name===null){
             throw new Error("it must contain a name");
         }
         if(price<=0){

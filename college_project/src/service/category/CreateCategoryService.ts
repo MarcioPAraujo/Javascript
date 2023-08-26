@@ -5,7 +5,7 @@ interface interfaceCategory{
 
 class CreateCategoryService{
     async execute({name,area}:interfaceCategory){
-        if(!name){
+        if(name===""){
             throw new Error("it must contain a neme");
         }
         if(!area){

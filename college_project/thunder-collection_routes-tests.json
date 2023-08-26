@@ -1,0 +1,195 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "routes-tests",
+    "dateExported": "2023-08-26T14:42:15.388Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "a0a86442-10a7-4339-bca9-d9f20bfba324",
+            "name": "product-requests",
+            "containerId": "",
+            "created": "2023-08-26T14:13:36.785Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "f0fd977c-a173-4648-8038-2ea3b1f52b68",
+            "name": "category-requests",
+            "containerId": "",
+            "created": "2023-08-26T14:13:49.280Z",
+            "sortNum": 20000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "ad1afff5-b5f5-4793-8843-0373fc5f4123",
+            "colId": "19e3a667-bfcb-4baf-a996-bcc54ce49fe4",
+            "containerId": "a0a86442-10a7-4339-bca9-d9f20bfba324",
+            "name": "add-product",
+            "url": "http://localhost:3000/product",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-08-26T14:14:08.089Z",
+            "modified": "2023-08-26T14:16:25.688Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"chocolate\",\n  \"category\":\"candies\",\n  \"price\":\"37.9\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "d5ac3721-d4ea-4c76-8946-1747b285a168",
+            "colId": "19e3a667-bfcb-4baf-a996-bcc54ce49fe4",
+            "containerId": "a0a86442-10a7-4339-bca9-d9f20bfba324",
+            "name": "delete-product",
+            "url": "http://localhost:3000/product/id=1",
+            "method": "DELETE",
+            "sortNum": 30000,
+            "created": "2023-08-26T14:17:27.276Z",
+            "modified": "2023-08-26T14:19:49.861Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "bf80130b-7c85-43ae-875a-4e471cc22c57",
+            "colId": "19e3a667-bfcb-4baf-a996-bcc54ce49fe4",
+            "containerId": "a0a86442-10a7-4339-bca9-d9f20bfba324",
+            "name": "update-product-incorrect",
+            "url": "http://localhost:3000/product/id=1",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2023-08-26T14:20:16.657Z",
+            "modified": "2023-08-26T14:21:09.625Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "0bfe4205-fbda-489c-942f-b044b6b90ffb",
+            "colId": "19e3a667-bfcb-4baf-a996-bcc54ce49fe4",
+            "containerId": "a0a86442-10a7-4339-bca9-d9f20bfba324",
+            "name": "update-product-correctly",
+            "url": "http://localhost:3000/product/?name=\"arroz\"&category=comida&price=23.5",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2023-08-26T14:22:15.616Z",
+            "modified": "2023-08-26T14:26:09.506Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "name",
+                    "value": "\"arroz\"",
+                    "isPath": false
+                },
+                {
+                    "name": "category",
+                    "value": "comida",
+                    "isPath": false
+                },
+                {
+                    "name": "price",
+                    "value": "23.5",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "0c9e24f4-d4df-418f-91b3-89eb407c8311",
+            "colId": "19e3a667-bfcb-4baf-a996-bcc54ce49fe4",
+            "containerId": "a0a86442-10a7-4339-bca9-d9f20bfba324",
+            "name": "list-products",
+            "url": "http://localhost:3000/product/",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2023-08-26T14:28:26.309Z",
+            "modified": "2023-08-26T14:28:37.897Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "36ab2de2-e4ed-42fe-b9e8-cbc4bfd809a9",
+            "colId": "19e3a667-bfcb-4baf-a996-bcc54ce49fe4",
+            "containerId": "f0fd977c-a173-4648-8038-2ea3b1f52b68",
+            "name": "add-category",
+            "url": "http://localhost:3000/category/",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2023-08-26T14:29:09.336Z",
+            "modified": "2023-08-26T14:34:18.989Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"suco\",\n  \"area\":\"comida\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "ec61799f-9b64-4dea-8ea9-c277bd666cbf",
+            "colId": "19e3a667-bfcb-4baf-a996-bcc54ce49fe4",
+            "containerId": "f0fd977c-a173-4648-8038-2ea3b1f52b68",
+            "name": "delete-category",
+            "url": "http://localhost:3000/category/id=5",
+            "method": "DELETE",
+            "sortNum": 80000,
+            "created": "2023-08-26T14:34:33.508Z",
+            "modified": "2023-08-26T14:34:55.577Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "94543aaa-bb3a-405d-95ae-8a83585e6bb1",
+            "colId": "19e3a667-bfcb-4baf-a996-bcc54ce49fe4",
+            "containerId": "f0fd977c-a173-4648-8038-2ea3b1f52b68",
+            "name": "update-category-incorrect",
+            "url": "http://localhost:3000/category/id=6",
+            "method": "PUT",
+            "sortNum": 90000,
+            "created": "2023-08-26T14:35:19.785Z",
+            "modified": "2023-08-26T14:35:50.945Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "b3675ecc-758d-4093-a65c-beefccaf0d1a",
+            "colId": "19e3a667-bfcb-4baf-a996-bcc54ce49fe4",
+            "containerId": "f0fd977c-a173-4648-8038-2ea3b1f52b68",
+            "name": "update-category-correctly",
+            "url": "http://localhost:3000/category/",
+            "method": "PUT",
+            "sortNum": 100000,
+            "created": "2023-08-26T14:36:13.592Z",
+            "modified": "2023-08-26T14:37:42.921Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"camisa\",\n  \"area\":\"vestuario\"\n  \n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "d17d93a0-15b0-4382-8b83-644a228598ad",
+            "colId": "19e3a667-bfcb-4baf-a996-bcc54ce49fe4",
+            "containerId": "f0fd977c-a173-4648-8038-2ea3b1f52b68",
+            "name": "list-categories",
+            "url": "http://localhost:3000/category/",
+            "method": "GET",
+            "sortNum": 110000,
+            "created": "2023-08-26T14:39:06.475Z",
+            "modified": "2023-08-26T14:39:11.274Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
