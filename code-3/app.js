@@ -43,7 +43,7 @@ console.log(num)
 
 num--
 console.log(num)
-num+=9; console.log(num)
+num=10-num; console.log(num)
 
 let all = 'there are xx eggs'
 console.log(all.replace('xx', num))
@@ -52,5 +52,6 @@ const bookMessage = '\'O Conto da Aia\' é um dos livros mais vendidos da décad
  console.log(bookMessage)
 
  const namel = 'walter white'
- 
- console.log(namel.toUpperCase())
+ let newFirstName = namel[0].toUpperCase()+namel.slice(1,6)
+ let newMiddlename = namel[7].toUpperCase()+namel.slice(8,namel.length)
+ console.log(newFirstName+" "+newMiddlename)
