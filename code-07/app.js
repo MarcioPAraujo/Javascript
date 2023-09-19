@@ -47,6 +47,15 @@ if(fruits.includes('abacaxi')){
   Obs.: tanto a expressão do lado esquerdo quanto a do lado direito do operador  
   lógico precisam ter a constante especificada. Exemplo: hour > x && hour < y.
 */
+const currentHour = 13
+if(currentHour>=6 && currentHour<12){
+  console.log('good mornig')
+}
+if(currentHour>=12 && currentHour<18){
+  console.log('good afternoon')
+}else{
+  console.log('good night')
+}
 
 /*
   03
@@ -61,7 +70,12 @@ if(fruits.includes('abacaxi')){
   - Agora, teste diferentes idades para se certificar que a condição do `if`  
     também está funcionando.
 */
-
+const myAge = 30
+if(myAge>7 || myAge<65){
+  console.log('entrada R$30.00')
+}else{
+  console.log("entrada gratuíta")
+}
 /*
   04
 
@@ -72,6 +86,14 @@ if(fruits.includes('abacaxi')){
 */
 
 const numbers = [7, 92, 34, 46, 90, 25, 11, 3, 89, 76, 99]
+const arrayNumbersSize = numbers.length
+let newArrayNumbersBetween_11_and_90 = []
+for(let i=0;i<arrayNumbersSize;i++){
+  if(numbers[i]>=11 && numbers[i]<=90){
+    newArrayNumbersBetween_11_and_90.push(numbers[i])
+  }
+}
+console.log(newArrayNumbersBetween_11_and_90)
 
 /*
   05
@@ -87,8 +109,27 @@ const numbers = [7, 92, 34, 46, 90, 25, 11, 3, 89, 76, 99]
 */
 
 const crazyArray = [true, 869, 'oi', 71, false, 83, '35', true, 397, 'js', false]
+let amountOfBooleans=0
+let amountOfNumber=0
+let amountOfStrings=0
+
+const crazyArraySize = crazyArray.length
+
+for(let i =0;i<crazyArraySize;i++){
+  if((typeof(crazyArray[i]))===typeof("")){
+    amountOfStrings++
+  }else{
+    if(typeof(crazyArray[i])===typeof(1)){
+      amountOfNumber++
+    }else{
+      amountOfBooleans++
+    }
+  }
+}
+console.log(`O crazyArray tem ${amountOfBooleans} booleans, ${amountOfNumber} números e ${amountOfStrings} strings.`)
 
 /*
+
   06
 
   - Abaixo do array "randomNumbers", utilize um for loop para gerar 2 novos  
@@ -106,3 +147,22 @@ const crazyArray = [true, 869, 'oi', 71, false, 83, '35', true, 397, 'js', false
 */
 
 const randomNumbers = [73, 4, 67, 10, 31, 58]
+let oddNumbersFromRandomNumbers=[]
+let evenNumbersFromRandomNumbers=[]
+let isOdd
+for(let i=0;i<randomNumbers.length;i++){
+  isOdd = Boolean(randomNumbers[i]%2)
+  //console.log(isOdd)
+  if(isOdd){
+    
+    oddNumbersFromRandomNumbers.push(randomNumbers[i])
+  }else{
+    evenNumbersFromRandomNumbers.push(randomNumbers[i])
+    }
+    
+}
+
+
+
+console.log(oddNumbersFromRandomNumbers)
+console.log(evenNumbersFromRandomNumbers)
