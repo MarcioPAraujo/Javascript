@@ -1,18 +1,30 @@
-import { classToPlain } from "class-transformer";
-import { json } from "express";
+import { getCustomRepository } from "typeorm";
+import { UsersRepositories } from "../../repositories/user/UsersRepositories";
+
 interface IUserDelete {
     id: string;
 }
 class DeleteUserService {
   async execute({id}:IUserDelete) {
 
-      console.log(id);
-      var messageDelete = {
+    
+      const usersRepository = getCustomRepository(UsersRepositories);
+
+      const userAlreadyExists = await usersRepository.findOne({
+        id,
+      });
+
+      if (!userAlreadyExists) {
+          throw new Error("User not exists");
+      }
+
+      const ret = await usersRepository.delete(id);
+      
+      var messagmsgeDelete = {
         message:"Registro excluido com sucesso"
       }
   
-      return messageDelete;
+      return messagmsgeDelete;
   }
 }
-
 export { DeleteUserService };
