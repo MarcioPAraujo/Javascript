@@ -4,7 +4,8 @@ import{
     PrimaryColumn,
     Column,
     DeleteDateColumn,
-    CreateDateColumn
+    CreateDateColumn,
+    UpdateDateColumn
 
 }from 'typeorm'
 import {v4 as uuid} from 'uuid'
@@ -24,7 +25,7 @@ class CriminalRecord{
         section!:string
 
     @Column()
-        reabiitation_program!:string
+        reabilitationProgram!:string
 
     @Column()
         prision!:string
@@ -33,6 +34,8 @@ class CriminalRecord{
     created_at!:Date
     @DeleteDateColumn()
     deleted_at!:Date
+    @UpdateDateColumn()
+    updated_at!:Date
 
     constructor() {
         if (!this.id) {
