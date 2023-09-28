@@ -26,6 +26,7 @@ class UpdateCriminalRecordService{
         criminalRecordAlreadyExist.prisoner=prisoner
         criminalRecordAlreadyExist.section=section
         criminalRecordAlreadyExist.sentence=sentence
+        criminalRecordAlreadyExist.reabilitationProgram=reabilitationProgram
         criminalRecordAlreadyExist.updated_at=new Date()
 
         const record = await criminalRecord.update(id,criminalRecordAlreadyExist)
