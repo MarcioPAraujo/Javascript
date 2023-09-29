@@ -4,6 +4,7 @@ import{
     Column,
     CreateDateColumn,
     DeleteDateColumn,
+    UpdateDateColumn,
 }from "typeorm"
 import {v4 as uuid} from "uuid"
 
@@ -31,6 +32,8 @@ class Prisoner{
         created_at!: Date
     @DeleteDateColumn()
         deleted_at!:Date
+    @UpdateDateColumn()
+        updated_at:Date
 
     constructor() {
         if (!this.id) {
