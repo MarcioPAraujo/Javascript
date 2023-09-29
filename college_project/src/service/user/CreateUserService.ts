@@ -17,8 +17,7 @@ interface IUserRequest {
        id:1, name:name, email:email, admin:admin, password:password
       }
       const passwordHash = await hash(password, 8);
-      console.log(passwordHash);  
-      console.log("teste") 
+      
       const user = usersRepository.create(
         {
         name,

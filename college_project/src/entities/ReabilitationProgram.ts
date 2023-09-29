@@ -4,7 +4,8 @@ import{
     PrimaryColumn,
     Column,
     DeleteDateColumn,
-    CreateDateColumn
+    CreateDateColumn,
+    UpdateDateColumn
 
 }from 'typeorm'
 import {v4 as uuid} from 'uuid'
@@ -18,13 +19,13 @@ class ReabilitationProgram{
         task!:string
 
     @Column()
-        times_per_week!:number
+        timesPerWeek!:number
 
     @Column()
         duration!:string
 
     @Column()
-        subject_of_study!:string
+        subjectOfStudy!:string
 
     @Column()
         responsable!:string
@@ -33,6 +34,9 @@ class ReabilitationProgram{
     created_at!:Date
     @DeleteDateColumn()
     deleted_at!:Date
+    @UpdateDateColumn()
+        updated_at:Date
+
 
     constructor() {
         if (!this.id) {
