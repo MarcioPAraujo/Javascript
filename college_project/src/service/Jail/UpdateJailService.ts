@@ -7,11 +7,11 @@ interface IJailUpdate{
     jailNumber:string,
     securityLevel:string,
     responsibleGuard:string,
-    confortlevel:string
+    confortLevel:string
 }
 
 class UpdateJailService{
-    async execute({id,capacity,jailNumber,securityLevel,responsibleGuard,confortlevel}:IJailUpdate){
+    async execute({id,capacity,jailNumber,securityLevel,responsibleGuard,confortLevel}:IJailUpdate){
 
         const jailRepositories = getCustomRepository(JailRepositories)
 
@@ -26,7 +26,7 @@ class UpdateJailService{
         jailAlreadyexists.jailNumber=jailNumber
         jailAlreadyexists.securityLevel=securityLevel
         jailAlreadyexists.responsibleGuard=responsibleGuard
-        jailAlreadyexists.confortLevel=confortlevel
+        jailAlreadyexists.confortLevel=confortLevel
         jailAlreadyexists.updated_at=new Date()
 
         const jailUpdate = await jailRepositories.update(id,jailAlreadyexists)
