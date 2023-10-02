@@ -1,7 +1,7 @@
 import { getCustomRepository } from "typeorm";
 import { ReabilitationProgramRepositories } from "../../repositories/ReabilitationProgramRepositories";
 
-class ListReabilitationProgram{
+class ListReabilitationProgramService{
     async execute(){
         const reabilitationProgram = getCustomRepository(ReabilitationProgramRepositories)
 
@@ -11,4 +11,4 @@ class ListReabilitationProgram{
     }
 }
 
-export {ListReabilitationProgram}
+export {ListReabilitationProgramService}

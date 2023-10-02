@@ -10,7 +10,7 @@ interface IReabilitationProgramupdate{
     responsable:string
 }
 
-class UpdateReabiliatationProgram{
+class UpdateReabiliatationProgramService{
     async execute({id,task,timesPerWeek,duration,subjectOfStudy,responsable}:IReabilitationProgramupdate){
 
         const reabilitationRepository = getCustomRepository(ReabilitationProgramRepositories)
@@ -34,4 +34,4 @@ class UpdateReabiliatationProgram{
     }
 }
 
-export{UpdateReabiliatationProgram}
+export{UpdateReabiliatationProgramService}

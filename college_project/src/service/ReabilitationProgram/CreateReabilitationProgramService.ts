@@ -9,7 +9,7 @@ interface IReabilitationProgramCreate{
     responsable:string
 }
 
-class CreateReabilitationProgram{
+class CreateReabilitationProgramService{
     async execeute({task,timesPerWeek,duration,subjectOfStudy,responsable}:IReabilitationProgramCreate){
         const reabilitationrepository = getCustomRepository(ReabilitationProgramRepositories)
 
@@ -21,4 +21,4 @@ class CreateReabilitationProgram{
     }
 }
 
-export{CreateReabilitationProgram}
+export{CreateReabilitationProgramService}

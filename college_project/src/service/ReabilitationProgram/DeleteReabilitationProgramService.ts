@@ -5,7 +5,7 @@ interface IReabiliattionProgramDelete{
     id:string
 }
 
-class DeletereabilitationProgram{
+class DeletereabilitationProgramService{
     async execute({id}:IReabiliattionProgramDelete){
 
         const reabilitationProgram = getCustomRepository(ReabilitationProgramRepositories)
@@ -24,4 +24,4 @@ class DeletereabilitationProgram{
     }
 }
 
-export{DeletereabilitationProgram}
+export{DeletereabilitationProgramService}
