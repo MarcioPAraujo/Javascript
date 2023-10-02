@@ -5,9 +5,9 @@ class UpdateJailController{
     async handle(request:Request,response:Response){
         const{id,capacity,jailNumber,securityLevel,responsibleGuard,confortLevel} = request.body
 
-        const updateJialService=new UpdateJailService()
+        const updateJailService=new UpdateJailService()
 
-        const prisoner = await updateJialService.execute({id,capacity,jailNumber,securityLevel,responsibleGuard,confortLevel})
+        const prisoner = await updateJailService.execute({id,capacity,jailNumber,securityLevel,responsibleGuard,confortLevel})
 
         return response.json(prisoner)
     }
