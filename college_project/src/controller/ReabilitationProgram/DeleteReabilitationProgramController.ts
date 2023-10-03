@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { DeletereabilitationProgramService } from "../../service/ReabilitationProgram/DeleteReabilitationProgramService";
 
-class DeleteReabilitationController{
+class DeleteReabilitationProgramController{
     async handle(request:Request,response:Response){
         const id = request.params.id
         const deleteProgramReabilitationService = new DeletereabilitationProgramService()
@@ -9,4 +9,4 @@ class DeleteReabilitationController{
         return response.json(retrieve)
     }
 }
-export{DeleteReabilitationController}
+export{DeleteReabilitationProgramController}
