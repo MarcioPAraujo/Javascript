@@ -18,7 +18,7 @@ import { DeleteCriminalRecordsController } from "./controller/CriminalRecords/De
 import { ListCriminalRecordsController } from "./controller/CriminalRecords/ListCriminalRecordsController";
 import { UpdateCriminalRecordsController } from "./controller/CriminalRecords/UpdateCriminalRecordsController";
 
-const createCriminalRecord = new CreateCriminalRecordsController()
+const createCriminalRecordController = new CreateCriminalRecordsController()
 const deleteCriminalRecord = new DeleteCriminalRecordsController()
 const listCrimnialRecords = new ListCriminalRecordsController()
 const updateCriminalRecord = new UpdateCriminalRecordsController()
@@ -29,7 +29,7 @@ import { DeleteEmployeeController } from "./controller/Employee/DeleteEmployeeCo
 import { ListEmployeeController } from "./controller/Employee/ListEmployeeController";
 import { UpdateEmployeeController } from "./controller/Employee/UpdateEmployeeController";
 
-const createEmployee = new CreateEmployeeController()
+const createEmployeeController = new CreateEmployeeController()
 const deleteEmployee = new DeleteEmployeeController()
 const listEmployee = new ListEmployeeController()
 const updateEmployee = new UpdateEmployeeController()
@@ -40,7 +40,7 @@ import { DeleteJailController } from "./controller/Jail/DeleteJailController";
 import { ListJailController } from "./controller/Jail/ListJailController";
 import { UpdateJailController } from "./controller/Jail/UpdateJailController";
 
-const createJail = new CreateJailController()
+const createJailController = new CreateJailController()
 const deleteJail = new DeleteJailController()
 const listJail = new ListJailController()
 const updateJail = new UpdateJailController()
@@ -51,7 +51,7 @@ import { DeleteprisonerController } from "./controller/Prisoner/DeletePrisonerCo
 import { ListPrisonerController } from "./controller/Prisoner/ListPrisonerController";
 import { UpdatePrisonerController } from "./controller/Prisoner/UpdatePrisonerController";
 
-const createPrisoner = new CreatePrisonerController()
+const createPrisonerController = new CreatePrisonerController()
 const deletePrisoner = new DeleteprisonerController()
 const listPrisoner = new ListPrisonerController()
 const updatePrisoner = new UpdatePrisonerController()
@@ -62,9 +62,10 @@ import { DeleteReabilitationProgramController} from "./controller/ReabilitationP
 import { ListReabilitationProgramController } from "./controller/ReabilitationProgram/ListReabilitationProgramController";
 import { UpdateReabiliatationProgramService } from "./service/ReabilitationProgram/UpdateReabiliattionProgramService";
 import { UpdateReabilitationProgram } from "./controller/ReabilitationProgram/UpdateReabilitationProgramController";
+import { hash } from "bcryptjs";
 
 
-const createReabilitation = new CreateReabilitationProgramControlle()
+const createReabilitationController = new CreateReabilitationProgramControlle()
 const deleteReabilitation = new DeleteReabilitationProgramController()
 const listReabilitation = new ListReabilitationProgramController()
 const updateReabilitation = new UpdateReabilitationProgram()
@@ -73,9 +74,36 @@ const router = Router();
 router.post("/login", autenticationUserController.handle);
 router.post("/users", createUserController.handle);
 
+router.post("/criminal-record",createCriminalRecordController.handle)
+router.post("/employee",createEmployeeController.handle)
+router.post("/jail",createJailController.handle)
+router.post("/prisoner",createPrisonerController.handle)
+router.post("/reabilitation-program",createReabilitationController.handle)
+
+
+
+
 router.use(ensureAuthenticated)
+
 router.get("/users", listUsersController.handle);
+router.get("/criminal-record",listCrimnialRecords.handle)
+router.get("/employee",listEmployee.handle)
+router.get("/jail",listJail.handle)
+router.get("/prisoner",listPrisoner.handle)
+router.get("/reabilitation-program",listReabilitation.handle)
+
 router.put("/users", updateUserController.handle);
+router.put("/criminal-record",updateCriminalRecord.handle)
+router.put("/employee",updateEmployee.handle)
+router.put("/jail",updateJail.handle)
+router.put("/prisoner",updatePrisoner.handle)
+router.put("/reabilitation-program",updateReabilitation.handle)
+
 router.delete("/users/:id", deleteUserController.handle);
+router.delete("/criminal-record/:id",deleteCriminalRecord.handle)
+router.delete("/employee/:id",deleteEmployee.handle)
+router.delete("/jail/:id",deleteJail.handle)
+router.delete("/prisoner/:id",deletePrisoner.handle)
+router.delete("/reablitation-program/:id",deleteReabilitation.handle)
 
 export {router}
