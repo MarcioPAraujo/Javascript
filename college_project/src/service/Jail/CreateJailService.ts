@@ -3,27 +3,27 @@ import { JailRepositories } from "../../repositories/JailRepositories";
 
 interface IJailService{
     capacity:number,
-    jailNumber:string,
-    securityLevel:string,
-    responsibleGuard:string,
-    confortLevel:string
+    jail_number:string,
+    security_level:string,
+    responsible_guard:string,
+    confort_level:string
 }
 
 class CreatejailService{
-    async execute({capacity,jailNumber,securityLevel,responsibleGuard,confortLevel}:IJailService){
+    async execute({capacity,jail_number: jail_number,security_level: security_level,responsible_guard,confort_level}:IJailService){
 
         const jailrepository = getCustomRepository(JailRepositories)
 
         let vjail = {
             id:1,
             capacity:capacity,
-            jailNumber:jailNumber,
-            securityLevel:securityLevel,
-            responsibleGuard:responsibleGuard,
-            confortLevel:confortLevel
+            jail_number:jail_number,
+            security_level:security_level,
+            responsible_guard:responsible_guard,
+            confort_level:confort_level
         }
 
-        const jail = jailrepository.create({capacity,jailNumber,securityLevel,responsibleGuard,confortLevel})
+        const jail = jailrepository.create({capacity,jail_number,security_level,responsible_guard,confort_level})
 
         await jailrepository.save(jail)
 

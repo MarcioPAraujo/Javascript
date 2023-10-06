@@ -19,16 +19,16 @@ class Jail{
         capacity!:number
 
     @Column()
-        jailNumber!:string
+        jail_number!:string
 
     @Column()
-        securityLevel!:string
+        security_level!:string
 
     @Column()
-        responsibleGuard!:string
+        responsible_guard!:string
 
     @Column()
-        confortLevel!:string
+        confort_level!:string
 
     @CreateDateColumn()  
         created_at!:Date

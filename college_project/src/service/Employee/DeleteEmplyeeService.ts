@@ -17,7 +17,7 @@ class DeleteEmployeeService{
 
         const retrieve = await employeeRepositories.delete({id})
 
-        let messagmsgeDelete = {message:`the ${id} was deleted`}
+        let messagmsgeDelete = {message:`the ${retrieve} was deleted`}
 
         return messagmsgeDelete
     }
