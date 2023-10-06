@@ -2,7 +2,7 @@ import { Request, Response, response } from "express";
 import { CreateEmployeeService } from "../../service/Employee/CreateEmployeeService";
 
 class CreateEmployeeController{
-    async handle(request:Request,reponse:Response){
+    async handle(request:Request,response:Response){
         const{name,turno,task,accessLevel,equipament}=request.body
 
         const newEmployee = {
@@ -12,10 +12,10 @@ class CreateEmployeeController{
             accessLevel:accessLevel,
             equipament:equipament
         }
-        const createEmployeeService = new CreateEmployeeService()
-        const retrieve = await createEmployeeService.execute(newEmployee)
+        const createEmployeeService = new CreateEmployeeService();
+        const retrieve = await createEmployeeService.execute(newEmployee);
 
-        return response.json(retrieve)
+        return response.json(retrieve);
 
     }
 }

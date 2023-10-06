@@ -12,27 +12,27 @@ import {v4 as uuid} from "uuid"
 class Employee{
 
     @PrimaryColumn()
-        readonly id!: string
+        readonly id!: string;
     
     @Column()
-        name!:string
+        name!:string;
 
     @Column() 
-        turno!:string
+        turno!:string;
 
     @Column()
-        task!:string
+        task!:string;
 
     @Column()
-        accessLevel!: string
+        accessLevel!: string;
 
     @Column() 
-        equipament!: string  
+        equipament: string ; 
 
     @CreateDateColumn()
-        created_at!: Date
+        created_at!: Date;
     @DeleteDateColumn()
-        deleted_at!: Date
+        deleted_at!: Date;
     @UpdateDateColumn()
         updated_at!: Date
 

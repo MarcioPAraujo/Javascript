@@ -25,7 +25,7 @@ class UpdateEmloyeeService{
         employeeAlreadyExists.task=task,
         employeeAlreadyExists.accessLevel=accessLevel,
         employeeAlreadyExists.equipament=equipament,
-        employeeAlreadyExists.updated_at=new Date
+        employeeAlreadyExists.updated_at=new Date()
 
         const employee = await employeeRepositories.update(id,employeeAlreadyExists)
         return employee

@@ -83,7 +83,7 @@ router.post("/reabilitation-program",createReabilitationController.handle)
 
 
 
-router.use(ensureAuthenticated)
+
 
 router.get("/users", listUsersController.handle);
 router.get("/criminal-record",listCrimnialRecords.handle)
@@ -101,9 +101,11 @@ router.put("/reabilitation-program",updateReabilitation.handle)
 
 router.delete("/users/:id", deleteUserController.handle);
 router.delete("/criminal-record/:id",deleteCriminalRecord.handle)
-router.delete("/employee/:id",deleteEmployee.handle)
+router.delete("/employee/",deleteEmployee.handle)
 router.delete("/jail/:id",deleteJail.handle)
 router.delete("/prisoner/:id",deletePrisoner.handle)
 router.delete("/reablitation-program/:id",deleteReabilitation.handle)
+
+router.use(ensureAuthenticated)
 
 export {router}

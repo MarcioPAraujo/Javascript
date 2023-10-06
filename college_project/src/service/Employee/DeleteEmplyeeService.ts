@@ -15,7 +15,7 @@ class DeleteEmployeeService{
             throw new Error('this employee does not exist')
         }
 
-        const retrieve = await employeeRepositories.delete(id)
+        const retrieve = await employeeRepositories.delete({id})
 
         let messagmsgeDelete = {message:`the ${id} was deleted`}
 
