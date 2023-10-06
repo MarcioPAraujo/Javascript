@@ -6,7 +6,7 @@ class DeleteJailController{
         const deleteJailService = new DeleteJailService()
 
         const id = request.params.id
-
+        
         const retrieve = await deleteJailService.execute({id})
 
         return response.json(retrieve)

@@ -5,13 +5,13 @@ class CreateCriminalRecordsController{
     async handle(request:Request,response:Response){
         
 
-        const {prisoner,sentence,section,reabilitationProgram,prision}= request.body
+        const {prisoner,sentence,section,reabilitation_program,prision}= request.body
 
         const criminalRecord = {
             prisoner:prisoner,
             sentence:sentence,
             section:section,
-            reabilitationProgram:reabilitationProgram,
+            reabilitation_program:reabilitation_program,
             prision:prision,
 
         }

@@ -6,12 +6,12 @@ interface CriminalRecordRequest{
     prisoner:string
     sentence:string
     section:string
-    reabilitationProgram:string
+    reabilitation_program:string
     prision:string
 
 }
 class CreateCriminalRecordService{
-    async execute({prisoner,sentence,section,reabilitationProgram,prision}:CriminalRecordRequest){
+    async execute({prisoner,sentence,section,reabilitation_program,prision}:CriminalRecordRequest){
         
         const criminalRecordRepositories = getCustomRepository(CriminalRecordRepositories)
         
@@ -24,12 +24,12 @@ class CreateCriminalRecordService{
             prisoner:prisoner,
             sentence:sentence,
             section:section,
-            reabilitationProgram:reabilitationProgram,
+            reabilitation_program:reabilitation_program,
             prision:prision
         
         }
 
-        const record = criminalRecordRepositories.create({prisoner,sentence,section,reabilitationProgram,prision})
+        const record = criminalRecordRepositories.create({prisoner,sentence,section,reabilitation_program,prision})
 
         await criminalRecordRepositories.save(record)
         return record

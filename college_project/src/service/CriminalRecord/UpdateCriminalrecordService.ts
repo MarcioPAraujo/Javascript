@@ -1,6 +1,6 @@
 import { getCustomRepository } from "typeorm";
 import { CriminalRecordRepositories } from "../../repositories/CriminalRecordRepositories";
-import { NONAME } from "dns";
+
 
 
 interface ICriminalRecordRequest{
@@ -8,12 +8,12 @@ interface ICriminalRecordRequest{
     prisoner:string
     sentence:string
     section:string
-    reabilitationProgram:string
+    reabilitation_program:string
     prision:string
 }
 
 class UpdateCriminalRecordService{
-    async execute({id,prisoner,sentence,section,reabilitationProgram,prision}:ICriminalRecordRequest){
+    async execute({id,prisoner,sentence,section,reabilitation_program,prision}:ICriminalRecordRequest){
         const criminalRecord = getCustomRepository(CriminalRecordRepositories)
 
         const criminalRecordAlreadyExist = await criminalRecord.findOne({id})
@@ -26,7 +26,7 @@ class UpdateCriminalRecordService{
         criminalRecordAlreadyExist.prisoner=prisoner
         criminalRecordAlreadyExist.section=section
         criminalRecordAlreadyExist.sentence=sentence
-        criminalRecordAlreadyExist.reabilitationProgram=reabilitationProgram
+        criminalRecordAlreadyExist.reabilitation_program=reabilitation_program
         criminalRecordAlreadyExist.updated_at=new Date()
 
         const record = await criminalRecord.update(id,criminalRecordAlreadyExist)

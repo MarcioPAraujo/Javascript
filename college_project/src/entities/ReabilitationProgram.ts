@@ -10,7 +10,7 @@ import{
 }from 'typeorm'
 import {v4 as uuid} from 'uuid'
 
-@Entity('reabilitationProgram')
+@Entity('reabilitationprogram')
 class ReabilitationProgram{
 
     @PrimaryColumn()
@@ -19,13 +19,13 @@ class ReabilitationProgram{
         task!:string
 
     @Column()
-        timesPerWeek!:number
+        times_per_week!:number
 
     @Column()
         duration!:string
 
     @Column()
-        subjectOfStudy!:string
+        subject_of_study!:string
 
     @Column()
         responsable!:string

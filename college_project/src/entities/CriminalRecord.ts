@@ -10,7 +10,7 @@ import{
 }from 'typeorm'
 import {v4 as uuid} from 'uuid'
 
-@Entity('criminalRecord')
+@Entity('criminalrecord')
 class CriminalRecord{
 
     @PrimaryColumn()
@@ -25,7 +25,7 @@ class CriminalRecord{
         section!:string
 
     @Column()
-        reabilitationProgram!:string
+        reabilitation_program!:string
 
     @Column()
         prision!:string

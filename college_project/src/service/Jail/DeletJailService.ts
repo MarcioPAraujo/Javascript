@@ -9,12 +9,13 @@ class DeleteJailService{
     async execute({id}:IJailDelete){
         const jailRepositories = getCustomRepository(JailRepositories)
 
-        const jailAlreadyexists = await jailRepositories.findOne(id)
+        const jailAlreadyexists = await jailRepositories.findOne({id},)
 
         if(!jailAlreadyexists){
-            throw new Error('this user does not exists')
+            
+            throw new Error('this jail does not exists')
         }
-
+        
         const retrieve = await jailRepositories.delete(id)
 
         let messagmsgeDelete = {message:`the user ${id} was deleted`}

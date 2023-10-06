@@ -4,13 +4,13 @@ import { CreateReabilitationProgramService } from "../../service/ReabilitationPr
 class CreateReabilitationProgramControlle{
     async handle(request:Request,response:Response){
         
-        const {task,timesPerWeek,duration,subjectOfStudy,responsable} = request.body
+        const {task,times_per_week,duration,subject_of_study,responsable} = request.body
 
         const newProgram = {
             task:task,
-            timesPerWeek:timesPerWeek,
+            times_per_week:times_per_week,
             duration:duration,
-            subjectOfStudy:subjectOfStudy,
+            subject_of_study:subject_of_study,
             responsable:responsable
         }
         const createReabilitationProgramService = new CreateReabilitationProgramService()
