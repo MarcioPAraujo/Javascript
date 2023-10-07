@@ -4,14 +4,14 @@ import { ReabilitationProgramRepositories } from "../../repositories/Reabilitati
 interface IReabilitationProgramupdate{
     id:string,
     task:string,
-    timesPerWeek:number,
+    times_per_week:number,
     duration:string,
-    subjectOfStudy:string,
+    subject_of_study:string,
     responsable:string
 }
 
 class UpdateReabiliatationProgramService{
-    async execute({id,task,timesPerWeek,duration,subjectOfStudy,responsable}:IReabilitationProgramupdate){
+    async execute({id,task,times_per_week,duration,subject_of_study,responsable}:IReabilitationProgramupdate){
 
         const reabilitationRepository = getCustomRepository(ReabilitationProgramRepositories)
 
@@ -22,9 +22,9 @@ class UpdateReabiliatationProgramService{
         }
 
         programAlreadyExists.task=task
-        programAlreadyExists.timesPerWeek=timesPerWeek
+        programAlreadyExists.times_per_week=times_per_week
         programAlreadyExists.duration=duration
-        programAlreadyExists.subjectOfStudy=subjectOfStudy
+        programAlreadyExists.subject_of_study=subject_of_study
         programAlreadyExists.responsable=responsable
         programAlreadyExists.updated_at=new Date()
 

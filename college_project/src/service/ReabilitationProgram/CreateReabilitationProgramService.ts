@@ -3,17 +3,17 @@ import { ReabilitationProgramRepositories } from "../../repositories/Reabilitati
 
 interface IReabilitationProgramCreate{
     task:string,
-    timesPerWeek:number,
+    times_per_week:number,
     duration:string,
-    subjectOfStudy:string,
+    subject_of_study:string,
     responsable:string
 }
 
 class CreateReabilitationProgramService{
-    async execeute({task,timesPerWeek,duration,subjectOfStudy,responsable}:IReabilitationProgramCreate){
+    async execeute({task,times_per_week,duration,subject_of_study,responsable}:IReabilitationProgramCreate){
         const reabilitationrepository = getCustomRepository(ReabilitationProgramRepositories)
 
-        const program = reabilitationrepository.create({task,timesPerWeek,duration,subjectOfStudy,responsable})
+        const program = reabilitationrepository.create({task,times_per_week,duration,subject_of_study,responsable})
 
         await reabilitationrepository.save(program)
 

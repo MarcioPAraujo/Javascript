@@ -13,6 +13,7 @@ class CreateReabilitationProgramControlle{
             subject_of_study:subject_of_study,
             responsable:responsable
         }
+        console.log('ok')
         const createReabilitationProgramService = new CreateReabilitationProgramService()
         const retrieve = await createReabilitationProgramService.execeute(newProgram)
 

@@ -6,7 +6,7 @@ class ListReabilitationProgramService{
         const reabilitationProgram = getCustomRepository(ReabilitationProgramRepositories)
 
         const programs = await reabilitationProgram.find()
-
+        console.log(programs)
         return programs
     }
 }

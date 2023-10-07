@@ -104,7 +104,7 @@ router.delete("/criminal-record/:id",deleteCriminalRecord.handle)
 router.delete("/employee/:id",deleteEmployee.handle)
 router.delete("/jail/:id",deleteJail.handle)
 router.delete("/prisoner/:id",deletePrisoner.handle)
-router.delete("/reablitation-program/:id",deleteReabilitation.handle)
+router.delete("/reabilitation-program/:id",deleteReabilitation.handle)
 
 router.use(ensureAuthenticated)
 
