@@ -85,33 +85,39 @@ console.log(newSentece)
 */
 
 const randomValues = [57, false, 'JS', [], true, 'HTML', 31, null, false, 'CSS', 97, true, 'Git', 11, 'sticker', false, 'GitHub', true, null]
+
 const randomValuesLenght = randomValues.length
+
 let stringCounter = 0
 let stringsWithinRandomValues = []
 let booleanCounter = 0
+
 let currentItemIsAString
 let currentItemIsBoolean
+let typeofItem
 for(let i=0;i<randomValuesLenght;i++){
   
   if(stringCounter<4){
-    
-    currentItemIsAString= (typeof randomValues[i] === typeof "")
+    typeofItem = typeof randomValues[i]
+    currentItemIsAString= (typeofItem === "string")
     if(currentItemIsAString){
       console.log('ok')
-      stringsWithinRandomValues+=`${randomValues[i]}, `
+      stringsWithinRandomValues.push(randomValues[i])
       stringCounter++
       continue
     }
-    currentItemIsBoolean = typeof randomValues[i]=== typeof true
+    currentItemIsBoolean = typeofItem === 'boolean'
     if(currentItemIsBoolean){
       booleanCounter++
       continue
     }
   }
   else{
-    console.log(`the array was iterated ${i+1} times`)
+    const fourStrings = stringsWithinRandomValues.join(', ').replace(`, ${stringsWithinRandomValues[stringsWithinRandomValues.length-1]}`, ` e ${stringsWithinRandomValues[stringsWithinRandomValues.length-1]}`)
+
+    console.log(`the array was iterated ${i} times`)
     console.log(`${booleanCounter} booleans were counted`)
-    console.log(`the four iterated strings were ${stringsWithinRandomValues}`)
+    console.log(`the four iterated strings were ${fourStrings}`)
     break
   }
 }
