@@ -85,6 +85,37 @@ console.log(newSentece)
 */
 
 const randomValues = [57, false, 'JS', [], true, 'HTML', 31, null, false, 'CSS', 97, true, 'Git', 11, 'sticker', false, 'GitHub', true, null]
+const randomValuesLenght = randomValues.length
+let stringCounter = 0
+let stringsWithinRandomValues = []
+let booleanCounter = 0
+let currentItemIsAString
+let currentItemIsBoolean
+for(let i=0;i<randomValuesLenght;i++){
+  
+  if(stringCounter<4){
+    
+    currentItemIsAString= (typeof randomValues[i] === typeof "")
+    if(currentItemIsAString){
+      console.log('ok')
+      stringsWithinRandomValues+=`${randomValues[i]}, `
+      stringCounter++
+      continue
+    }
+    currentItemIsBoolean = typeof randomValues[i]=== typeof true
+    if(currentItemIsBoolean){
+      booleanCounter++
+      continue
+    }
+  }
+  else{
+    console.log(`the array was iterated ${i+1} times`)
+    console.log(`${booleanCounter} booleans were counted`)
+    console.log(`the four iterated strings were ${stringsWithinRandomValues}`)
+    break
+  }
+}
+
 
 /*
   06
@@ -106,7 +137,24 @@ const randomValues = [57, false, 'JS', [], true, 'HTML', 31, null, false, 'CSS',
     da bebida além da que você escolheu.
 */
 
-// const drinkType
+const drinkType = 'juice'
+let message
+switch(drinkType){
+  case 'water':
+    message = `water is hydrogen plus oxigen`
+    break
+  case 'soft drink':
+    message = `sweet poison`
+    break
+  case 'juice':
+    message = `made of fruits`
+    break
+  default: 
+    message = `invalid drink`
+    break
+}
+
+console.log(message)
 
 /*
   07
@@ -116,7 +164,7 @@ const randomValues = [57, false, 'JS', [], true, 'HTML', 31, null, false, 'CSS',
     para testar o switch que você escreveu.
 */
 
-const a = 2
+const a = 0
 
 // if (a === 0) {
 //   console.log(`O valor de "a" é ${a}`)
@@ -125,3 +173,15 @@ const a = 2
 // } else {
 //   console.log('O valor de "a" é qualquer número, exceto 0 e 1')
 // }
+
+switch(a){
+  case 0:
+    console.log(`o valor de a ${a}`)  
+    break
+  case 1:
+    console.log(`o valor de a ${a}`)
+    break
+  default :
+    console.log(`o valor de a é diferente de 0 e 1`)  
+    break
+}
