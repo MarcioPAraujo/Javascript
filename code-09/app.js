@@ -87,7 +87,30 @@ console.log(arrayToUppercase(millennialWords))
   "O array "randomNumbers" possui XX números, sendo XX positivos e XX negativos."
 */
 
+const positiveNumber = function(randomNumber){
+  const negativeNumber = randomNumber<0
+  if(negativeNumber){
+    return false
+  }
+  else{
+    return true
+  } 
+}
+
 const randomNumbers = [-2, 93, 34, -1, 1, 93, 11, -7, 47, -3]
+let positive=0, negative=0, i=0
+let arraySize = randomNumbers.length
+
+while(arraySize>i){
+  const itIsPositive = positiveNumber(randomNumbers[i])
+  if(itIsPositive)
+  {positive++}
+  else
+  {negative++}
+  i++
+}
+console.log(randomNumbers)
+console.log(`this array has ${positive} positive number and ${negative} negative numbers`)
 
 /*
   06
@@ -98,8 +121,20 @@ const randomNumbers = [-2, 93, 34, -1, 1, 93, 11, -7, 47, -3]
   - Exiba o novo array no console, sem inserir um console.log() dentro da  
     função.
 */
+function getOddNumbers(numbers){
+  let oddNumbers = []
+  arraySize = numbers.length
+  for(let i =0;i<arraySize;i++){
+    const oddNumber = numbers[i]%2 !== 0
 
-// getOddNumbers([83, 52, 31, 73, 98, 37, 61, 56, 12, 24, 35, 3, 34, 80, 42])
+    if(oddNumber){
+      oddNumbers.push(numbers[i])
+    }
+  }
+  return oddNumbers
+}
+const listOfNumbers = [83, 52, 31, 73, 98, 37, 61, 56, 12, 24, 35, 3, 34, 80, 42]
+console.log(getOddNumbers(listOfNumbers))
 
 /*
   07
@@ -137,3 +172,12 @@ const functions = [
   function () { return 'Índias' },
   function () { return 'Ocidentais.' }
 ]
+let phrase =[]
+let oneFunction 
+for(let i = 0;i<functions.length;i++){
+  
+  oneFunction = functions[i]
+  phrase.push(oneFunction())
+
+}
+console.log(phrase.join(" "))
