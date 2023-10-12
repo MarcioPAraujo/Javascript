@@ -65,9 +65,9 @@ const arrayToUppercase = function(arrayLowerCase=[]){
     //const arrayLowerCaseLenght = arrayLowerCase.lenght
     const arrayUpperCase = []
     for(let i=0;i<arrayLowerCase.length;i++){
-       let word 
-       word = arrayLowerCase[i]
-        arrayUpperCase.push(word.toUpperCase())
+       let upperCaseWord 
+       upperCaseWord = arrayLowerCase[i].toUpperCase()
+        arrayUpperCase.push(upperCaseWord)
 
     }
     return arrayUpperCase
@@ -88,13 +88,7 @@ console.log(arrayToUppercase(millennialWords))
 */
 
 const positiveNumber = function(randomNumber){
-  const negativeNumber = randomNumber<0
-  if(negativeNumber){
-    return false
-  }
-  else{
-    return true
-  } 
+  return randomNumber>0
 }
 
 const randomNumbers = [-2, 93, 34, -1, 1, 93, 11, -7, 47, -3]
@@ -103,6 +97,7 @@ let arraySize = randomNumbers.length
 
 while(arraySize>i){
   const itIsPositive = positiveNumber(randomNumbers[i])
+
   if(itIsPositive)
   {positive++}
   else
@@ -124,17 +119,19 @@ console.log(`this array has ${positive} positive number and ${negative} negative
 function getOddNumbers(numbers){
   let oddNumbers = []
   arraySize = numbers.length
+
   for(let i =0;i<arraySize;i++){
     const oddNumber = numbers[i]%2 !== 0
+    const currentNumber = numbers[i]
 
     if(oddNumber){
-      oddNumbers.push(numbers[i])
+      oddNumbers.push(currentNumber)
     }
   }
   return oddNumbers
 }
-const listOfNumbers = [83, 52, 31, 73, 98, 37, 61, 56, 12, 24, 35, 3, 34, 80, 42]
-console.log(getOddNumbers(listOfNumbers))
+const listOfNumbers = getOddNumbers([83, 52, 31, 73, 98, 37, 61, 56, 12, 24, 35, 3, 34, 80, 42])
+console.log(listOfNumbers)
 
 /*
   07
@@ -173,11 +170,11 @@ const functions = [
   function () { return 'Ocidentais.' }
 ]
 let phrase =[]
-let oneFunction 
+let word 
 for(let i = 0;i<functions.length;i++){
   
-  oneFunction = functions[i]
-  phrase.push(oneFunction())
+  word = functions[i]()
+  phrase.push(word)
 
 }
 console.log(phrase.join(" "))
