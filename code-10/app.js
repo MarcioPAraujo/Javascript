@@ -59,7 +59,7 @@ convertToString('dear')
     - Crie uma função que, ao ser invocada, retorna um boolean indicando se o item  
       passado por argumento existe no array (também passado por argumento).
   */const thereIs = (iten,list) => list.includes(iten)
-    let n = [8,0,9]
+    let n = [81,0,9]
     console.log(thereIs(1,n))
   
   /*
@@ -67,21 +67,29 @@ convertToString('dear')
   
     - Crie uma função que retorna a concatenação de 2 arrays, passados como  
       argumentos em sua invocação;
-  */
-  
+  */const concatArrays = (array1,array2) => array1.concat(array2)
+    let newArray = concatArrays('jeg bor i Norge ','hvor bor du?')
+    console.log(newArray)
   /*
     07
   
     - Crie uma função que retorna o array passado como argumento em sua invocação,  
       mas com o último item removido.
-  */
+  */const removeLastItem = list => list.pop()
+  let randomArray = [1,2,3,4,5,6,7,8,9,0]
+  let removedItem = removeLastItem(randomArray)
+  console.log(removedItem)
   
   /*
     08
   
     - Crie uma função que retorna se o valor passado como argumento em sua  
       invocação é null.
-  */
+  */const isNull = parameter => {
+    return !parameter
+  }
+
+  console.log(isNull())
   
   /*
     09
@@ -92,8 +100,10 @@ convertToString('dear')
     - Invoque a função que recebe um callback por parâmetro, passando como  
       argumento a função que exibe seu nome no console e veja se o nome realmente  
       foi exibido.
-  */
-  
+  */const onlyUsecallbackFunction = callBackFunction => callBackFunction
+
+  const printMyName = () => {console.log('hallo god morgen Johann')}
+onlyUsecallbackFunction(printMyName())
   /*
     10
   
@@ -104,6 +114,11 @@ convertToString('dear')
     - Faça com que a invocação da função descrita no 1º item deste exercício (10)  
       resulte no triplo de 33.
   */
+ const triple = multiplyByThree => multiplyByThree
+
+ const multiplyByThree = num => num*3
+
+ console.log(triple(multiplyByThree(11)))
   
   /*
     11
@@ -115,7 +130,11 @@ convertToString('dear')
   */
   
   const numbers = [1, 2, 3]
-  
+  const arrayInformations = (number,index,array) => {
+    let patternPhrase = `o ${index+1} item do array ${array} é ${number}`
+    console.log(patternPhrase)
+  }
+  numbers.forEach(arrayInformations)
   /*
     12
   
@@ -126,10 +145,11 @@ convertToString('dear')
   
   const letters = ['v', 'e', 'p']
   let lettersCopy = []
+  const arrayCopy = letter => {lettersCopy.push(letter)}
+  letters.forEach(arrayCopy)
+  console.log(lettersCopy)
+    
   
-  for (let i = 0; i < letters.length; i++) {
-    lettersCopy.push(letters[i])
-  }
   
   /*
     13
@@ -158,7 +178,7 @@ convertToString('dear')
     'Recomendo esse livro pra quem curte uma boa história de ficção. Apesar de muita gente pensar que o livro não tem graça, porque o legal mesmo é ver o dinossauro no filme, com todos os efeitos especiais, eu digo pra deixar esse pensamento de lado, pois a história é tão bem contada e os detalhes são tão bem relatados, que você passa a fazer parte da história, e vive todas as emoções hahaha.'
   ]
   
-  let paragraphs = ''
+  let paragraphs = review.join(' ')
   
   section.innerHTML = paragraphs
   
@@ -181,4 +201,25 @@ convertToString('dear')
       "NOME_1, NOME_2 e mais X pessoas curtiram isso". O "X" deve ser substituído  
       pelo restante da quantidade de pessoas que curtiram o post (além das duas  
       pessoas já mencionadas no início da mensagem).
-  */
+  */const countLikes = (profiles) => {
+    let amountOfLikes
+    switch (profiles.length){
+      case 0:
+        amountOfLikes = `no one liked it`;break
+      case 1:
+        amountOfLikes = `${profiles[0]} liked your video`;break
+      case 2:
+        amountOfLikes = `${profiles[0]} e ${profiles[1]} liked you` ;break
+      case 3: 
+        amountOfLikes = `${profiles[0]}, ${profiles[1]} e ${profiles[2]} liked you`;break
+      default:
+        amountOfLikes = `${profiles[0]}, ${profiles[1]} and more ${profiles.length-2} liked you`
+
+
+    }
+    return amountOfLikes
+    
+  }
+  let peopleWhoLiked = ['john','monica','nina','eva','emilia','melina']
+  let likes = countLikes(peopleWhoLiked)
+  console.log(likes)
