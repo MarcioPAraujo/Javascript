@@ -86,10 +86,11 @@ convertToString('dear')
     - Crie uma função que retorna se o valor passado como argumento em sua  
       invocação é null.
   */const isNull = parameter => {
-    return !parameter
+    return parameter===null
   }
 
-  console.log(isNull())
+  console.log(isNull(null))
+
   
   /*
     09
@@ -100,10 +101,10 @@ convertToString('dear')
     - Invoque a função que recebe um callback por parâmetro, passando como  
       argumento a função que exibe seu nome no console e veja se o nome realmente  
       foi exibido.
-  */const onlyUsecallbackFunction = callBackFunction => callBackFunction
+  */const onlyUsecallbackFunction = callBackFunction => {callBackFunction()}
 
   const printMyName = () => {console.log('hallo god morgen Johann')}
-onlyUsecallbackFunction(printMyName())
+onlyUsecallbackFunction(printMyName)
   /*
     10
   
