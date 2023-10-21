@@ -31,7 +31,11 @@
   03
 
   - Adicione 2 anos à idade do gato e exiba a idade atualizada no console.
+
 */
+
+cat.age+=2
+console.log(cat.age)
 
 /*
   04
@@ -40,6 +44,12 @@
   - Exiba o array de amigos no console para verificar se o novo amigo(a) foi  
     adicionado.
 */
+const addNewFriend = (friend) => {
+  cat.bestFriends.push(friend)
+}
+
+addNewFriend('loren')
+console.log(cat.bestFriends)
 
 /*
   05
@@ -50,6 +60,13 @@
     colchetes.
 */
 
+const addNewColor = (color) => {
+  cat.color += [color]
+  
+}
+addNewColor(' white')
+
+console.log(cat.color)
 /*
   06
 
@@ -57,7 +74,9 @@
     parâmetro é um objeto;
   - Utilize a função para exibir no console se "cat" é um objeto.
 */
+const itIsAnObject = (object) => typeof object === 'object'
 
+console.log(itIsAnObject(cat))
 /*
   07
 
@@ -68,6 +87,14 @@
   "A soma das idades de NOME_DO_GATO e NOME_DO_CACHORRO é RESULTADO_DA_SOMA."
 */
 
+let dog = {
+  name: 'der',
+  age: 5,
+  color: 'yellow',
+  bestFriends: ['leno','fisk'],
+  sound: () => 'barks'
+}
+console.log(`A soma das idades de ${cat.catName} e ${dog.name} é ${cat.age + dog.age}.`)
 /*
   08
 
@@ -77,15 +104,13 @@
 */
 
 const isAnSUV = car => {
-    if (car === 'Honda HR-V' || car === 'Jeep Renegade' || car === 'Ford EcoSport' || car === 'Hyundai iX35') {
-      return true
-    }
+  const suvs = ['Honda HR-V','Jeep Renegade','Ford EcoSport','Hyundai iX35']
+  return suvs.includes(car)
+}
   
-    return false
-  }
   
-  // console.log(isAnSUV('Honda Civic'))
-  // console.log(isAnSUV('Ford EcoSport'))
+   console.log(isAnSUV('Honda Civic'))
+   console.log(isAnSUV('Ford EcoSport'))
   
   /*
     09
@@ -99,3 +124,5 @@ const isAnSUV = car => {
       propriedades, retorne a mensagem que a propriedade armazena;
     - Teste a função, exibindo no console a mensagem de cada propriedade.
   */
+
+  

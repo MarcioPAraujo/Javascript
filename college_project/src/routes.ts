@@ -71,7 +71,7 @@ const listReabilitation = new ListReabilitationProgramController()
 const updateReabilitation = new UpdateReabilitationProgram()
 
 const router = Router();
-router.post("/login", autenticationUserController.handle);
+//router.post("/login", autenticationUserController.handle);
 router.post("/users", createUserController.handle);
 
 router.post("/criminal-record",createCriminalRecordController.handle)
@@ -106,6 +106,6 @@ router.delete("/jail/:id",deleteJail.handle)
 router.delete("/prisoner/:id",deletePrisoner.handle)
 router.delete("/reabilitation-program/:id",deleteReabilitation.handle)
 
-router.use(ensureAuthenticated)
+//router.use(ensureAuthenticated)
 
 export {router}
