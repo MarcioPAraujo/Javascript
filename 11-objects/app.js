@@ -125,4 +125,27 @@ const isAnSUV = car => {
     - Teste a função, exibindo no console a mensagem de cada propriedade.
   */
 
-  
+  const create = (type) => {
+    let dataType = {
+      null : 'variable without an explicit value',
+      undefined: 'not defined value',
+      object: 'arrays, dates, literal objects, functions ...'
+    }
+
+    switch (type){
+      case 'null':
+        return dataType.null
+      case 'undefined':
+        return dataType.undefined
+      case 'object':
+        return dataType.object
+      default:
+        return'unknown type'
+    }
+  }
+
+  let type = 'null'
+  type = type.toLowerCase()
+
+  let whatTypeIs = create(type)
+  console.log(whatTypeIs)
