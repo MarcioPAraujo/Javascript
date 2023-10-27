@@ -65,7 +65,7 @@ const addNewColor = (color) => {
   
 }
 addNewColor(' white')
-
+addNewColor(' gray')
 console.log(cat.color)
 /*
   06
