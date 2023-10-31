@@ -47,17 +47,21 @@ let car ={
     brand:'toyota',
     colors:['black','white','gray'],
     isRunnig:false,
-    run: () => 'the car is running',
-    stop: () => 'the car is stoped',
-    getColorMessage: () => `we got the car in ${car.colors[0]}, ${car.colors[1]} and ${car.colors[2]}`
+    run: () => {
+        this.isRunning = true
+        return 'the car is running'},
+    stop: () => {
+        this.isRunnig=false
+        return'the car is stoped'},
+    getColorMessage: function () {return`we got the car in ${this.colors.join(", ")}`}
 }
-
+    
 /*
   04
 
   - Faça o carro andar e exiba no console se ele realmente está em movimento.
 */
-car.isRunnig = true
+
 console.log(car.run())
 
 /*
@@ -65,7 +69,7 @@ console.log(car.run())
 
   - Faça o carro parar e exiba no console se ele realmente está parado.
 */
-car.isRunnig = false
+
 console.log(car.stop())
 
 /*
