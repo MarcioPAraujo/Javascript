@@ -79,6 +79,7 @@ const best2019Movies = [
   
     - Exiba o valor do PI no console.
   */
+ console.log(Math.PI)
   
   
   
@@ -90,6 +91,7 @@ const best2019Movies = [
   */
   
   const firstNumber = 8.3
+  console.log(Math.ceil(firstNumber))
   
   /*
     05
@@ -99,6 +101,7 @@ const best2019Movies = [
   */
   
   const secondNumber = 3.5
+  console.log(Math.round(secondNumber))
   
   /*
     06
@@ -108,6 +111,7 @@ const best2019Movies = [
   */
   
   const thirdNumber = 8.9
+  console.log(Math.floor(thirdNumber))
   
   /*
     07
@@ -116,6 +120,7 @@ const best2019Movies = [
   */
   
   const fourthNumber = 5.5
+  console.log(Math.trunc(fourthNumber))
   
   /*
     08
@@ -123,3 +128,4 @@ const best2019Movies = [
     - A cada vez que o index.html for carregado, exiba no console um número  
       aleatório de 0 à 10, incluindo 0 e 10.
   */
+ console.log(Math.round(Math.random()*10))
