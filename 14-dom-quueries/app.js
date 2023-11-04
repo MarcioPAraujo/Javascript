@@ -8,17 +8,20 @@
   "NOME_DO_GATO é um gato COR_DO_GATO de IDADE_DO_GATO anos."
 */
 
-const getCatInfo = () => 
-   catinfo =  [
-    name = 'Marcos',
-    age = 3,
-    color = 'Cinza'
-    ]
+const getCatInfo = () => {
+   
+    const name = 'Marcos'
+    const age = 3
+    const color = 'Cinza'
+
+    return {name,age,color}
+
+}
 
   
 
-  let info = getCatInfo()
-    console.log(`${info[0]} é um gato ${info[2]} de ${info[1]} anos.`)
+  let {age,name,color  } = getCatInfo()
+    console.log(`${name} é um gato ${age} de ${color} anos.`)
   /*
     02
   
