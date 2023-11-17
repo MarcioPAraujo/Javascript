@@ -5,10 +5,15 @@ import{
     Column,
     DeleteDateColumn,
     CreateDateColumn,
-    UpdateDateColumn
+    UpdateDateColumn,
+    
+    ManyToOne,
+    JoinColumn
 
 }from 'typeorm'
 import {v4 as uuid} from 'uuid'
+
+import { Employee } from './Employee'
 
 @Entity('reabilitationprogram')
 class ReabilitationProgram{
@@ -27,8 +32,10 @@ class ReabilitationProgram{
     @Column()
         subject_of_study!:string
 
-    @Column()
-        responsable!:string
+    @ManyToOne(()=>Employee)
+    @JoinColumn()
+    responsable!:Employee
+
 
     @CreateDateColumn()  
     created_at!:Date

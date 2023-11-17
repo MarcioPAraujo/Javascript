@@ -5,10 +5,16 @@ import{
     Column,
     DeleteDateColumn,
     CreateDateColumn,
-    UpdateDateColumn
+    UpdateDateColumn,
+    ManyToOne,
+    JoinColumn,
+    
 
 }from 'typeorm'
 import {v4 as uuid} from 'uuid'
+import { Prisoner } from './Prisoner'
+import { ReabilitationProgram } from './ReabilitationProgram'
+import { Prision } from './Prision'
 
 @Entity('criminalrecord')
 class CriminalRecord{
@@ -16,7 +22,7 @@ class CriminalRecord{
     @PrimaryColumn()
         readonly id!:string
     @Column()
-        prisoner!:string
+        crime!:string
 
     @Column()
         sentence!:string
@@ -24,11 +30,22 @@ class CriminalRecord{
     @Column()
         section!:string
 
-    @Column()
-        reabilitation_program!:string
 
-    @Column()
-        prision!:string
+    @ManyToOne(()=>Prisoner)
+    @JoinColumn()
+    prisoner!:Prisoner
+
+    @ManyToOne(()=>ReabilitationProgram)
+    @JoinColumn()
+    reabiliatationProgram!:ReabilitationProgram
+
+    @ManyToOne(()=>Prision)
+    @JoinColumn()
+    prision!:Prision
+
+    
+    
+
 
     @CreateDateColumn()  
     created_at!:Date

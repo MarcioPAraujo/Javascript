@@ -5,8 +5,11 @@ import{
     CreateDateColumn,
     DeleteDateColumn,
     UpdateDateColumn,
+    ManyToOne,
+    JoinColumn,
 }from "typeorm"
 import {v4 as uuid} from "uuid"
+import { Prision } from "./Prision";
 
 @Entity('employees')
 class Employee{
@@ -27,7 +30,11 @@ class Employee{
         accessLevel!: string;
 
     @Column() 
-        equipament: string ; 
+        equipament: string ;
+        
+    @ManyToOne(()=>Prision)
+    @JoinColumn()
+    prision!:Prision
 
     @CreateDateColumn()
         created_at!: Date;

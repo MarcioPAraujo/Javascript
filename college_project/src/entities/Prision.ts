@@ -11,35 +11,27 @@ import{
 
 }from 'typeorm'
 import {v4 as uuid} from 'uuid'
-import {Employee } from './Employee'
+import { Jail } from './Jail'
 
-@Entity('jail')
-class Jail{
+@Entity('prision')
+class Prision{
     @PrimaryColumn()
-        readonly id!:string
-
+        readonly id!: string
     @Column()
-        capacity!:number
-
+        name!:string
     @Column()
-        jail_number!:string
+        address!:string
 
-    @Column()
-        security_level!:string
-
-    @Column()
-        confort_level!:string
-
-    @ManyToOne(()=>Employee)
+    /* @ManyToOne(()=>Jail)
     @JoinColumn()
-    employee!:Employee
-
+    jail!:Jail */
+    
     @CreateDateColumn()  
-        created_at!:Date
+    created_at!:Date
     @DeleteDateColumn()
-        deleted_at!:Date
+    deleted_at!:Date
     @UpdateDateColumn()
-        updated_at!:Date
+    updated_at!:Date
 
     constructor() {
         if (!this.id) {
@@ -48,4 +40,4 @@ class Jail{
     }
 }
 
-export{Jail}
+export {Prision}
