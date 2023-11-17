@@ -22,13 +22,13 @@ class Jail{
         capacity!:number
 
     @Column()
-        jail_number!:string
+        jailNumber!:string
 
     @Column()
-        security_level!:string
+        securityLevel!:string
 
     @Column()
-        confort_level!:string
+        confortLevel!:string
 
     @ManyToOne(()=>Employee)
     @JoinColumn()

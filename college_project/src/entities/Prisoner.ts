@@ -34,19 +34,19 @@ class Prisoner{
     @Column()
         nationality!:string
 
-@ManyToOne(()=>Jail)    
-@JoinColumn()
-jail!:Jail
+    @ManyToOne(()=>Jail)    
+    @JoinColumn()
+    jail!:Jail
 
-@ManyToOne(()=>ReabilitationProgram)
-@JoinColumn()
-reabilitationProgram!:ReabilitationProgram
+    @ManyToOne(()=>ReabilitationProgram)
+    @JoinColumn()
+    reabilitationProgram!:ReabilitationProgram
 
 
 
-@ManyToOne(()=>CriminalRecord)
-@JoinColumn()
-criminalRecord!:CriminalRecord
+    @ManyToOne(()=>CriminalRecord)
+    @JoinColumn()
+    criminalRecord!:CriminalRecord
 
     
     @CreateDateColumn()

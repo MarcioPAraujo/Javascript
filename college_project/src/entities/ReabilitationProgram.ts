@@ -24,13 +24,13 @@ class ReabilitationProgram{
         task!:string
 
     @Column()
-        times_per_week!:number
+        timesPerWeek!:number
 
     @Column()
         duration!:string
 
     @Column()
-        subject_of_study!:string
+        subjectOfStudy!:string
 
     @ManyToOne(()=>Employee)
     @JoinColumn()
