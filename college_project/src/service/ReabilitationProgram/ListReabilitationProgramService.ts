@@ -3,10 +3,12 @@ import { ReabilitationProgramRepositories } from "../../repositories/Reabilitati
 
 class ListReabilitationProgramService{
     async execute(){
-        const reabilitationProgram = getCustomRepository(ReabilitationProgramRepositories)
+        const reabilitationProgramRepositories = getCustomRepository(ReabilitationProgramRepositories)
 
-        const programs = await reabilitationProgram.find()
+        const programs = await reabilitationProgramRepositories.createQueryBuilder('reabilitationprogram').leftJoinAndSelect('reabilitationprogram.responsable','responsable').getMany()
+
         console.log(programs)
+        
         return programs
     }
 }

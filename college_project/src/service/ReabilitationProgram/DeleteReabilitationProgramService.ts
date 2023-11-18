@@ -10,7 +10,7 @@ class DeletereabilitationProgramService{
 
         const reabilitationProgram = getCustomRepository(ReabilitationProgramRepositories)
 
-        const programAlreadyExists = await reabilitationProgram.findOne(id)
+        const programAlreadyExists = await reabilitationProgram.findOne({id})
 
         if(!programAlreadyExists){
             throw new Error('this reabilitation program does not exists')

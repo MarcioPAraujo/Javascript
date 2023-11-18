@@ -11,7 +11,6 @@ import{
 import {v4 as uuid} from "uuid"
 import { Jail } from "./Jail"
 import { ReabilitationProgram } from "./ReabilitationProgram"
-import { Prision } from "./Prision"
 import { CriminalRecord } from "./CriminalRecord"
 
 @Entity('prisoner')

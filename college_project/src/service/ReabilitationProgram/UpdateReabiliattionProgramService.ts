@@ -1,30 +1,31 @@
 import { getCustomRepository } from "typeorm";
 import { ReabilitationProgramRepositories } from "../../repositories/ReabilitationProgramRepositories";
+import { Employee } from "../../entities/Employee";
 
 interface IReabilitationProgramupdate{
     id:string,
     task:string,
-    times_per_week:number,
+    timesPerWeek:number,
     duration:string,
-    subject_of_study:string,
-    responsable:string
+    subjectOfStudy:string,
+    responsable:Employee
 }
 
 class UpdateReabiliatationProgramService{
-    async execute({id,task,times_per_week,duration,subject_of_study,responsable}:IReabilitationProgramupdate){
+    async execute({id,task,timesPerWeek,duration,subjectOfStudy,responsable}:IReabilitationProgramupdate){
 
         const reabilitationRepository = getCustomRepository(ReabilitationProgramRepositories)
 
-        const programAlreadyExists = await reabilitationRepository.findOne(id)
+        const programAlreadyExists = await reabilitationRepository.findOne({id})
 
         if(!programAlreadyExists){
             throw new Error('this program does not exists')
         }
 
         programAlreadyExists.task=task
-        programAlreadyExists.times_per_week=times_per_week
+        programAlreadyExists.timesPerWeek=timesPerWeek
         programAlreadyExists.duration=duration
-        programAlreadyExists.subject_of_study=subject_of_study
+        programAlreadyExists.subjectOfStudy=subjectOfStudy
         programAlreadyExists.responsable=responsable
         programAlreadyExists.updated_at=new Date()
 

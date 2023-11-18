@@ -1,19 +1,23 @@
 import { getCustomRepository } from "typeorm";
 import { ReabilitationProgramRepositories } from "../../repositories/ReabilitationProgramRepositories"; 
 
+
 interface IReabilitationProgramCreate{
     task:string,
-    times_per_week:number,
+    timesPerWeek:number,
     duration:string,
-    subject_of_study:string,
-    responsable:string
+    subjectOfStudy:string,
+    responsable:string,
+
 }
 
 class CreateReabilitationProgramService{
-    async execeute({task,times_per_week,duration,subject_of_study,responsable}:IReabilitationProgramCreate){
+    async execeute({task,timesPerWeek,duration,subjectOfStudy,responsable}:IReabilitationProgramCreate){
         const reabilitationrepository = getCustomRepository(ReabilitationProgramRepositories)
 
-        const program = reabilitationrepository.create({task,times_per_week,duration,subject_of_study,responsable})
+        const program = reabilitationrepository.create(
+            {task,timesPerWeek,duration,subjectOfStudy,responsable:{id:responsable}
+        })
 
         await reabilitationrepository.save(program)
 
