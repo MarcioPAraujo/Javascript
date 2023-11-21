@@ -10,7 +10,7 @@ class DeletePrisonerService{
     async execute({id}:IPrisonerDelete){
         const prisonerRepository = getCustomRepository(PrisonerRepositories)
 
-        const prisonerAlreadyExists = await prisonerRepository.findOne(id)
+        const prisonerAlreadyExists = await prisonerRepository.findOne({id})
 
         if(!prisonerAlreadyExists){
             throw new Error ('this prisoner does not exists')

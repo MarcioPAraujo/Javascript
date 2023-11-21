@@ -1,5 +1,6 @@
 import { getCustomRepository } from "typeorm";
 import { PrisonerRepositories } from "../../repositories/PrisonerRepositories";
+import { Jail } from "../../entities/Jail";
 
 interface IPrisonerUpdate{
     id:string
@@ -8,9 +9,10 @@ interface IPrisonerUpdate{
     weight:number
     age:number
     nationality:string
+    jail:Jail
 }
 class UpdatePrisonerService{
-    async execute({id,name,height,weight,age,nationality}:IPrisonerUpdate){
+    async execute({id,name,height,weight,age,nationality,jail}:IPrisonerUpdate){
 
         const prisonerRepository = getCustomRepository(PrisonerRepositories)
 
@@ -25,6 +27,7 @@ class UpdatePrisonerService{
         prisonerAlreadyExists.weight=weight
         prisonerAlreadyExists.age=age
         prisonerAlreadyExists.nationality=nationality
+        prisonerAlreadyExists.jail=jail
         prisonerAlreadyExists.updated_at=new Date()
 
         const updatedPrisoner = await prisonerRepository.update(id,prisonerAlreadyExists)

@@ -11,7 +11,7 @@ import{
 
 }from 'typeorm'
 import {v4 as uuid} from 'uuid'
-import { Jail } from './Jail'
+
 
 @Entity('prision')
 class Prision{
@@ -21,10 +21,6 @@ class Prision{
         name!:string
     @Column()
         address!:string
-
-    /* @ManyToOne(()=>Jail)
-    @JoinColumn()
-    jail!:Jail */
     
     @CreateDateColumn()  
     created_at!:Date

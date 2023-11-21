@@ -3,9 +3,12 @@ import { UpdateCriminalRecordService } from "../../service/CriminalRecord/Update
 
 class UpdateCriminalRecordsController{
     async handle(request:Request,response:Response){
-        const{id,prisoner,sentence,section,reabilitation_program,prision} = request.body
+        const{id,prisoner,sentence,section,crime} = request.body
+
         const updateCriminalRecordsService = new UpdateCriminalRecordService()
-        const updatedRecords = await updateCriminalRecordsService.execute({id,prisoner,sentence,section,reabilitation_program,prision})
+
+        const updatedRecords = await updateCriminalRecordsService.execute({id,prisoner,sentence,section,crime})
+
         return response.json(updatedRecords)
 
     }

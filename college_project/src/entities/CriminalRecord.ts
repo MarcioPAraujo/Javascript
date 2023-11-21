@@ -35,13 +35,6 @@ class CriminalRecord{
     @JoinColumn()
     prisoner!:Prisoner
 
-    @ManyToOne(()=>ReabilitationProgram)
-    @JoinColumn()
-    reabiliatationProgram!:ReabilitationProgram
-
-    @ManyToOne(()=>Prision)
-    @JoinColumn()
-    prision!:Prision
 
     
     

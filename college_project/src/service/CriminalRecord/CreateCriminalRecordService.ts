@@ -1,4 +1,5 @@
-import { error } from "console";
+
+
 import { CriminalRecordRepositories } from "../../repositories/CriminalRecordRepositories";
 import { getCustomRepository } from "typeorm";
 
@@ -6,30 +7,18 @@ interface CriminalRecordRequest{
     prisoner:string
     sentence:string
     section:string
-    reabilitation_program:string
-    prision:string
+    crime:string
+    
 
 }
 class CreateCriminalRecordService{
-    async execute({prisoner,sentence,section,reabilitation_program,prision}:CriminalRecordRequest){
+    async execute({prisoner,sentence,section,crime}:CriminalRecordRequest){
         
         const criminalRecordRepositories = getCustomRepository(CriminalRecordRepositories)
-        
-        if(typeof(prisoner)===undefined){
-            throw new Error('prisioner is not defined')
-        }
 
-        let criminalRecordData = {
-            id:1,
-            prisoner:prisoner,
-            sentence:sentence,
-            section:section,
-            reabilitation_program:reabilitation_program,
-            prision:prision
-        
-        }
+       
 
-        const record = criminalRecordRepositories.create({prisoner,sentence,section,reabilitation_program,prision})
+        const record = criminalRecordRepositories.create({prisoner:{id:prisoner},sentence,section,crime})
 
         await criminalRecordRepositories.save(record)
         return record

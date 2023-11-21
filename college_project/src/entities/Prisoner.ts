@@ -10,8 +10,7 @@ import{
 }from "typeorm"
 import {v4 as uuid} from "uuid"
 import { Jail } from "./Jail"
-import { ReabilitationProgram } from "./ReabilitationProgram"
-import { CriminalRecord } from "./CriminalRecord"
+
 
 @Entity('prisoner')
 class Prisoner{
@@ -37,17 +36,7 @@ class Prisoner{
     @JoinColumn()
     jail!:Jail
 
-    @ManyToOne(()=>ReabilitationProgram)
-    @JoinColumn()
-    reabilitationProgram!:ReabilitationProgram
-
-
-
-    @ManyToOne(()=>CriminalRecord)
-    @JoinColumn()
-    criminalRecord!:CriminalRecord
-
-    
+  
     @CreateDateColumn()
         created_at!: Date
     @DeleteDateColumn()

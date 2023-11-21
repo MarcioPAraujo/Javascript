@@ -3,16 +3,16 @@ import { CreatejailService } from "../../service/Jail/CreateJailService";
 
 class CreateJailController{
     async handle(request:Request,response:Response){
-        const{capacity,jail_number,security_level,responsible_guard,confort_level}=request.body
-        const prisoner= {
+        const{capacity,jailNumber,securityLevel,confortLevel,employee}=request.body
+        const jai= {
             capacity:capacity,
-            jail_number:jail_number,
-            security_level:security_level,
-            responsible_guard:responsible_guard,
-            confort_level:confort_level
+            jailNumber:jailNumber,
+            securityLevel:securityLevel,
+            confortLevel:confortLevel,
+            employee:employee
         }
         const createJailService = new CreatejailService()
-        const retrieve = await createJailService.execute(prisoner)
+        const retrieve = await createJailService.execute(jai)
 
         return response.json(retrieve)
 

@@ -5,9 +5,10 @@ class ListCriminalRecordService{
     async execute(){
         const criminalRecord = getCustomRepository(CriminalRecordRepositories)
 
-        const records = await criminalRecord.find()
-
-        return records
+        const records = await criminalRecord.createQueryBuilder("criminalrecord")
+        .leftJoinAndSelect("criminalrecord.prisoner","prisoner")
+        .getMany();
+        return  records;
     }
 }
 

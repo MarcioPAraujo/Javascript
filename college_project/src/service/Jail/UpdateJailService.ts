@@ -1,17 +1,19 @@
 import { getCustomRepository } from "typeorm";
 import { JailRepositories } from "../../repositories/JailRepositories";
+import { Employee } from "../../entities/Employee";
+
 
 interface IJailUpdate{
     id:string,
     capacity:number,
-    jail_number:string,
-    security_level:string,
-    responsible_guard:string,
-    confort_level:string
+    jailNumber:string,
+    securityLevel:string,
+    confortLevel:string,
+    employee:Employee
 }
 
 class UpdateJailService{
-    async execute({id,capacity,jail_number,security_level,responsible_guard,confort_level}:IJailUpdate){
+    async execute({id,capacity,jailNumber,securityLevel,confortLevel,employee}:IJailUpdate){
 
         const jailRepositories = getCustomRepository(JailRepositories)
 
@@ -23,10 +25,10 @@ class UpdateJailService{
         }
 
         jailAlreadyexists.capacity=capacity
-        jailAlreadyexists.jail_number=jail_number
-        jailAlreadyexists.security_level=security_level
-        jailAlreadyexists.responsible_guard=responsible_guard
-        jailAlreadyexists.confort_level=confort_level
+        jailAlreadyexists.jailNumber=jailNumber
+        jailAlreadyexists.securityLevel=securityLevel
+        jailAlreadyexists.confortLevel=confortLevel
+        jailAlreadyexists.employee=employee
         jailAlreadyexists.updated_at=new Date()
 
         const jailUpdate = await jailRepositories.update(id,jailAlreadyexists)

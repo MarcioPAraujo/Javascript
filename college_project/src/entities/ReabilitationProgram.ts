@@ -13,7 +13,7 @@ import{
 }from 'typeorm'
 import {v4 as uuid} from 'uuid'
 
-import { Employee } from './Employee'
+import { Employee as Prisoner } from './Employee'
 
 @Entity('reabilitationprogram')
 class ReabilitationProgram{
@@ -32,9 +32,9 @@ class ReabilitationProgram{
     @Column()
         subjectOfStudy!:string
 
-    @ManyToOne(()=>Employee)
+    @ManyToOne(()=>Prisoner)
     @JoinColumn()
-    responsable!:Employee
+    responsable!:Prisoner
 
 
     @CreateDateColumn()  

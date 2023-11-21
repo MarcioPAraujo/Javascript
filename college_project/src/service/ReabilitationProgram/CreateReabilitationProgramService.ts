@@ -7,17 +7,16 @@ interface IReabilitationProgramCreate{
     timesPerWeek:number,
     duration:string,
     subjectOfStudy:string,
-    responsable:string,
+    prisoner:string,
 
 }
 
 class CreateReabilitationProgramService{
-    async execeute({task,timesPerWeek,duration,subjectOfStudy,responsable}:IReabilitationProgramCreate){
+    async execeute({task,timesPerWeek,duration,subjectOfStudy,prisoner}:IReabilitationProgramCreate){
         const reabilitationrepository = getCustomRepository(ReabilitationProgramRepositories)
 
         const program = reabilitationrepository.create(
-            {task,timesPerWeek,duration,subjectOfStudy,responsable:{id:responsable}
-        })
+            {task,timesPerWeek,duration,subjectOfStudy,prisoner:{id:prisoner}})
 
         await reabilitationrepository.save(program)
 

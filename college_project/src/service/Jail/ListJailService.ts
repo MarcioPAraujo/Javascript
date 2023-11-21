@@ -5,7 +5,9 @@ class ListJailService{
     async execute(){
         const jailRepositories = getCustomRepository(JailRepositories)
 
-        const jails = await jailRepositories.find()
+        const jails = await jailRepositories.createQueryBuilder("jail")
+        .leftJoinAndSelect("jail.employee","employee")
+        .getMany();
 
         return jails
     }
