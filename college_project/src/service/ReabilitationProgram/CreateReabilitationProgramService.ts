@@ -3,11 +3,11 @@ import { ReabilitationProgramRepositories } from "../../repositories/Reabilitati
 
 
 interface IReabilitationProgramCreate{
-    task:string,
-    timesPerWeek:number,
-    duration:string,
-    subjectOfStudy:string,
-    prisoner:string,
+    task:string
+    timesPerWeek:number
+    duration:string
+    subjectOfStudy:string
+    prisoner:string
 
 }
 

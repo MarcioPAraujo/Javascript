@@ -19,7 +19,7 @@ import { Employee as Prisoner } from './Employee'
 class ReabilitationProgram{
 
     @PrimaryColumn()
-        readonly id!:string
+        readonly id!: string
     @Column()
         task!:string
 
