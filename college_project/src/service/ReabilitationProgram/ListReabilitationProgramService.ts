@@ -5,7 +5,7 @@ class ListReabilitationProgramService{
     async execute(){
         const reabilitationProgramRepositories = getCustomRepository(ReabilitationProgramRepositories)
 
-        const programs = await reabilitationProgramRepositories.createQueryBuilder('reabilitationprogram').leftJoinAndSelect('reabilitationprogram.responsable','responsable').getMany()
+        const programs = await reabilitationProgramRepositories.createQueryBuilder('reabilitationprogram').leftJoinAndSelect('reabilitationprogram.prisoner','prisoner').getMany()
 
         console.log(programs)
         

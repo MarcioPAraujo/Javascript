@@ -1,6 +1,7 @@
 import { getCustomRepository } from "typeorm";
 import { ReabilitationProgramRepositories } from "../../repositories/ReabilitationProgramRepositories";
-import { Employee } from "../../entities/Employee";
+
+import { Prisoner } from "../../entities/Prisoner";
 
 interface IReabilitationProgramupdate{
     id:string,
@@ -8,11 +9,11 @@ interface IReabilitationProgramupdate{
     timesPerWeek:number,
     duration:string,
     subjectOfStudy:string,
-    responsable:Employee
+    prisoner:Prisoner
 }
 
 class UpdateReabiliatationProgramService{
-    async execute({id,task,timesPerWeek,duration,subjectOfStudy,responsable}:IReabilitationProgramupdate){
+    async execute({id,task,timesPerWeek,duration,subjectOfStudy,prisoner}:IReabilitationProgramupdate){
 
         const reabilitationRepository = getCustomRepository(ReabilitationProgramRepositories)
 
@@ -26,7 +27,7 @@ class UpdateReabiliatationProgramService{
         programAlreadyExists.timesPerWeek=timesPerWeek
         programAlreadyExists.duration=duration
         programAlreadyExists.subjectOfStudy=subjectOfStudy
-        programAlreadyExists.responsable=responsable
+        programAlreadyExists.prisoner=prisoner
         programAlreadyExists.updated_at=new Date()
 
         const reabilitationProgramUpdated = await reabilitationRepository.update(id,programAlreadyExists)

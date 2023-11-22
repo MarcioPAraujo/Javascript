@@ -5,10 +5,7 @@ import{
     Column,
     DeleteDateColumn,
     CreateDateColumn,
-    UpdateDateColumn,
-    ManyToOne,
-    JoinColumn
-
+    UpdateDateColumn
 }from 'typeorm'
 import {v4 as uuid} from 'uuid'
 

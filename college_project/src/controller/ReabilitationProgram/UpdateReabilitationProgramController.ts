@@ -4,12 +4,12 @@ import { UpdateReabiliatationProgramService } from "../../service/ReabilitationP
 class UpdateReabilitationProgram{
     async handle(request:Request,response:Response){
         
-        const {id,task,timesPerWeek,duration,subjectOfStudy,responsable} = request.body
+        const {id,task,timesPerWeek,duration,subjectOfStudy,prisoner} = request.body
 
         const updateReabiliataionProgramService = new UpdateReabiliatationProgramService()
 
         const updatedProgram = await updateReabiliataionProgramService.execute({
-            id,task,timesPerWeek,duration,subjectOfStudy,responsable
+            id,task,timesPerWeek,duration,subjectOfStudy,prisoner
         })
 
         return response.json(updatedProgram)

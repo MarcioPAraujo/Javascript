@@ -13,8 +13,7 @@ import{
 }from 'typeorm'
 import {v4 as uuid} from 'uuid'
 import { Prisoner } from './Prisoner'
-import { ReabilitationProgram } from './ReabilitationProgram'
-import { Prision } from './Prision'
+
 
 @Entity('criminalrecord')
 class CriminalRecord{
