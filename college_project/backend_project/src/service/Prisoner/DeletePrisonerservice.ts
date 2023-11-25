@@ -17,7 +17,7 @@ class DeletePrisonerService{
         }
         const retrieve = await prisonerRepository.delete(id)
 
-        let messagmsgeDelete = {message:'successfully deleted'}
+        let messagmsgeDelete = {message:`${prisonerAlreadyExists.name}uccessfully deleted`}
 
         return messagmsgeDelete
     }

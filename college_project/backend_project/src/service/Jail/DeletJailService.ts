@@ -18,7 +18,7 @@ class DeleteJailService{
         
         const retrieve = await jailRepositories.delete(id)
 
-        let messagmsgeDelete = {message:`the user ${id} was deleted`}
+        let messagmsgeDelete = {message:`the jail ${jailAlreadyexists.jailNumber} was deleted`}
 
         return messagmsgeDelete
 

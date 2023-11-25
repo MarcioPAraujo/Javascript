@@ -16,7 +16,7 @@ class DeleteCriminalRecordService{
 
         const retrieve = await criminalRecord.delete(id)
 
-        let messagmsgeDelete = {message:'criminal record was deleted'}
+        let messagmsgeDelete = {message:`criminal record from ${recordAlreadyExist.prisoner.name} was deleted`}
 
         return messagmsgeDelete
     }
