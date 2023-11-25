@@ -90,6 +90,7 @@ router.post("/jail",createJailController.handle)
 router.post("/prisoner",createPrisonerController.handle)
 router.post("/reabilitation-program",createReabilitationController.handle)
 router.post('/prision',createPrisionController.handle)
+router.post("/reset",autenticationUserController.resetPassword)
 
 router.get("/users", listUsersController.handle);
 router.get("/criminal-record",listCrimnialRecords.handle)

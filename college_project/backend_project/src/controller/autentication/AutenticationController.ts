@@ -14,6 +14,14 @@ class AuthenticateUserController {
 
     return response.json(token);
   }
+  async resetPassword(request:Request,response:Response){
+    const {email,password} = request.body;
+    
+    const authenticateUserService = new AuthenticateUserService();
+    const ret = await authenticateUserService.resetpassword(email,password);
+    
+    return response.json(ret); 
+  }
 }
 
 export { AuthenticateUserController };

@@ -3,6 +3,7 @@ import { hash } from "bcryptjs";
 import { sign } from "jsonwebtoken";
 import { getCustomRepository } from "typeorm";
 import { UsersRepositories } from "../../repositories/user/UsersRepositories";
+const nodemailer =require('nodemailer');
 
 interface IAuthenticateRequest {
   email: string;
@@ -41,6 +42,50 @@ class AuthenticateUserService {
     );
     
     return token;
+  }
+
+  async resetpassword(email,password) {
+    const usersRepositories = getCustomRepository(UsersRepositories);
+    
+    const userAlreadyExists = await usersRepositories.findOne(
+      {email}
+    );
+    console.log(email)
+    if(!userAlreadyExists){
+      throw new Error("Email incorreto");
+    }
+    const myEmail = password
+    const passwordHash = await hash(myEmail,8);
+    userAlreadyExists.password = passwordHash
+    
+    const user =await usersRepositories.update(userAlreadyExists.id,userAlreadyExists)
+    const mailoptions = {
+    from: 'mail@mestresdaweb.io',
+    to: email,  
+    subject:'email teste',
+    html:`
+    <h1>Olá percebemos que você esqueceu a senha!!!</h1>
+    <p>Sua nova senha é:</p><b>${myEmail}</b>
+    `
+    };
+    let transporter = nodemailer.createTransport({
+    host:"mail.mestresdaweb.io",
+    port: 465,
+    auth:{
+
+    user:"mail@mestresdaweb.io",
+    pass:"OZF6Cyf,ahw^",
+    },
+  });
+  return  await transporter.sendMail(mailoptions,
+    (err,info) => {
+      if(err)
+      console.log(err)
+      else
+      return"Senha enviada com sucesso";            
+    });
+  
+   
   }
 }
 
