@@ -1,0 +1,28 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "jail",
+    "dateExported": "2023-11-23T12:09:07.126Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "fcc80ab4-52ca-4b6e-95b6-e3efb009e74c",
+            "colId": "9f5d8c4d-1d79-444d-b1ea-b5a2c9fd21fc",
+            "containerId": "",
+            "name": "create-jail",
+            "url": "http://localhost:3000/jail",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-11-23T12:04:31.288Z",
+            "modified": "2023-11-23T12:07:50.621Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"capacity\":30,\n  \"jailNumber\":\"12a\",\n  \"securityLevel\":\"meduim\",\n  \"confortLevel\":\"zero\",\n  \"employee\":\"ef805e12-e168-4599-bb23-e7e9fc010f4c\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
