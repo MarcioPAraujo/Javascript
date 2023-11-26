@@ -2944,7 +2944,7 @@ module.exports.default = axios;
 
 },{"./utils":"node_modules/axios/lib/utils.js","./helpers/bind":"node_modules/axios/lib/helpers/bind.js","./core/Axios":"node_modules/axios/lib/core/Axios.js","./core/mergeConfig":"node_modules/axios/lib/core/mergeConfig.js","./defaults":"node_modules/axios/lib/defaults.js","./cancel/Cancel":"node_modules/axios/lib/cancel/Cancel.js","./cancel/CancelToken":"node_modules/axios/lib/cancel/CancelToken.js","./cancel/isCancel":"node_modules/axios/lib/cancel/isCancel.js","./helpers/spread":"node_modules/axios/lib/helpers/spread.js","./helpers/isAxiosError":"node_modules/axios/lib/helpers/isAxiosError.js"}],"node_modules/axios/index.js":[function(require,module,exports) {
 module.exports = require('./lib/axios');
-},{"./lib/axios":"node_modules/axios/lib/axios.js"}],"js/index.js":[function(require,module,exports) {
+},{"./lib/axios":"node_modules/axios/lib/axios.js"}],"src/prision/javascript/prision.js":[function(require,module,exports) {
 "use strict";
 
 require("regenerator-runtime/runtime");
@@ -2955,30 +2955,34 @@ function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyri
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 var url = "http://localhost:3000/";
-
-//Carregar Formuláro
-$(document).ready(function () {
-  Loadselect();
-  loadTable();
+$("#clear").click(function () {
+  try {
+    clear();
+  } catch (errors) {
+    console.error(errors);
+  }
 });
-//Função Botão Salvar Formuláro
-$("#btnSalvar").click( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+function clear() {
+  $("#id").val(""), $("#name").val(""), $("#address").val("");
+}
+$("#save").click( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+  var register;
   return _regeneratorRuntime().wrap(function _callee$(_context) {
     while (1) switch (_context.prev = _context.next) {
       case 0:
         _context.prev = 0;
-        if (!($("#id").val() == "")) {
-          _context.next = 6;
+        register = $("#save").val() == "register";
+        if (!register) {
+          _context.next = 7;
           break;
         }
-        _context.next = 4;
+        _context.next = 5;
         return insert();
-      case 4:
+      case 5:
         _context.next = 8;
         break;
-      case 6:
-        _context.next = 8;
-        return update();
+      case 7:
+        alert('error');
       case 8:
         clear();
         _context.next = 14;
@@ -2993,132 +2997,18 @@ $("#btnSalvar").click( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regenerator
     }
   }, _callee, null, [[0, 11]]);
 })));
-//Função Limpar Formuláro
-$("#btnLimpar").click( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-  return _regeneratorRuntime().wrap(function _callee2$(_context2) {
-    while (1) switch (_context2.prev = _context2.next) {
-      case 0:
-        try {
-          clear();
-        } catch (errors) {
-          console.error(errors);
-        }
-      case 1:
-      case "end":
-        return _context2.stop();
-    }
-  }, _callee2);
-})));
-// carregar Select caso tenham na pagina
-function Loadselect() {
-  _axios.default.get(url + 'profile', {}).then(function (response) {
-    $.each(response.data, function (key, item) {
-      $('#selectP').append($("<option></option>").attr("value", item.id).text(item.name));
-    });
-  }).catch(function (error) {
-    alert(error);
-  });
-}
-
-// carregar a tabela contendo a listagem dos dados caso exista nas paginas
-function loadTable() {
-  _axios.default.get(url + 'users', {}).then(function (response) {
-    var table = new DataTable("#table_User", {
-      data: response.data,
-      columns: [{
-        data: 'id'
-      }, {
-        data: 'name'
-      }, {
-        data: 'email'
-      }, {
-        data: null,
-        defaultContent: '<button id="edit">Editar</button>&nbsp;<button id="excluir">Excluir</button>',
-        targets: -1
-      }]
-    });
-    table.on('click', 'button', function (e) {
-      var data = table.row($(this).parents('tr')).data();
-      alert(data.id);
-      if (this.id === 'edit') {
-        loadUser(data.id);
-      } else {
-        deleteRecord(data.id);
-      }
-    });
-  }).catch(function (error) {
-    alert(error);
-  });
-}
-
-// Carregar o Objeto
-function loadUser(_x) {
-  return _loadUser.apply(this, arguments);
-} //Atualizar a Tabela no mmento dos ajustes dos dados
-function _loadUser() {
-  _loadUser = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(id) {
-    return _regeneratorRuntime().wrap(function _callee3$(_context3) {
-      while (1) switch (_context3.prev = _context3.next) {
-        case 0:
-          _context3.next = 2;
-          return _axios.default.get(url + 'users/' + id, {}).then(function (response) {
-            $("#id").val(response.data.id);
-            $("#name").val(response.data.name);
-            $("#email").val(response.data.email);
-            if (response.data.admin) {
-              admin = $("#admin").prop('checked:true');
-            }
-            $("#selectP").val(response.profile.id);
-          }).catch(function (error) {
-            console.log(error);
-          });
-        case 2:
-        case "end":
-          return _context3.stop();
-      }
-    }, _callee3);
-  }));
-  return _loadUser.apply(this, arguments);
-}
-function refreshtable() {
-  return _refreshtable.apply(this, arguments);
-} // Inserir objeto
-function _refreshtable() {
-  _refreshtable = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4() {
-    return _regeneratorRuntime().wrap(function _callee4$(_context4) {
-      while (1) switch (_context4.prev = _context4.next) {
-        case 0:
-          _axios.default.get(url + 'users', {}).then(function (response) {
-            var table = new DataTable("#table_User");
-            table.destroy();
-            $('#table_User').empty();
-            loadTable();
-          }).catch(function (error) {
-            alert(error);
-          });
-        case 1:
-        case "end":
-          return _context4.stop();
-      }
-    }, _callee4);
-  }));
-  return _refreshtable.apply(this, arguments);
-}
 function insert() {
   return _insert.apply(this, arguments);
-} // Deletar objeto
+}
 function _insert() {
-  _insert = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee5() {
-    return _regeneratorRuntime().wrap(function _callee5$(_context5) {
-      while (1) switch (_context5.prev = _context5.next) {
+  _insert = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+    return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+      while (1) switch (_context2.prev = _context2.next) {
         case 0:
-          _context5.next = 2;
-          return _axios.default.post(url + 'users', {
+          _context2.next = 2;
+          return _axios.default.post(url + 'prision', {
             name: $("#name").val(),
-            email: $("#email").val(),
-            admin: $("#admin").prop('checked'),
-            password: $("#password").val(),
-            profile: $("#selectP option:selected").val()
+            address: $("#address").val()
           }).then(function (response) {
             alert("Registro Incluído com Sucesso");
           }).catch(function (error) {
@@ -3126,69 +3016,11 @@ function _insert() {
           });
         case 2:
         case "end":
-          return _context5.stop();
+          return _context2.stop();
       }
-    }, _callee5);
+    }, _callee2);
   }));
   return _insert.apply(this, arguments);
-}
-function deleteRecord(_x2) {
-  return _deleteRecord.apply(this, arguments);
-} // Atualizar objeto
-function _deleteRecord() {
-  _deleteRecord = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee6(id) {
-    return _regeneratorRuntime().wrap(function _callee6$(_context6) {
-      while (1) switch (_context6.prev = _context6.next) {
-        case 0:
-          _context6.next = 2;
-          return _axios.default.delete(url + 'users/' + id, {}).then(function (response) {
-            alert("Registro Excluido com Sucesso");
-            clear();
-          }).catch(function (error) {
-            console.log(error);
-          });
-        case 2:
-        case "end":
-          return _context6.stop();
-      }
-    }, _callee6);
-  }));
-  return _deleteRecord.apply(this, arguments);
-}
-function update() {
-  return _update.apply(this, arguments);
-} // Lmpar Campos
-function _update() {
-  _update = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee7() {
-    return _regeneratorRuntime().wrap(function _callee7$(_context7) {
-      while (1) switch (_context7.prev = _context7.next) {
-        case 0:
-          _context7.next = 2;
-          return _axios.default.put(url + 'users', {
-            id: $("#id").val(),
-            name: $("#name").val(),
-            email: $("#email").val(),
-            admin: $("#admin").prop('checked'),
-            password: $("#password").val(),
-            profile: $("#selectP option:selected").val()
-          }).then(function (response) {
-            alert("Registro Atualizado com Sucesso");
-            clear();
-          }).catch(function (error) {
-            console.log(error);
-          });
-        case 2:
-        case "end":
-          return _context7.stop();
-      }
-    }, _callee7);
-  }));
-  return _update.apply(this, arguments);
-}
-function clear() {
-  $("#id").val(""), $("#name").val(""), $("#email").val(""), $("#admin").prop('checked', false), $("#password").val("");
-  $("#selectP").val("");
-  refreshtable();
 }
 },{"regenerator-runtime/runtime":"node_modules/regenerator-runtime/runtime.js","axios":"node_modules/axios/index.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -3359,5 +3191,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/index.js"], null)
-//# sourceMappingURL=/js.00a46daa.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/prision/javascript/prision.js"], null)
+//# sourceMappingURL=/prision.da37e782.js.map
