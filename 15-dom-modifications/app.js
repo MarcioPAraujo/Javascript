@@ -18,9 +18,11 @@ h1.innerText = h1.innerText.toUpperCase()
 
 const numbers = [ 53, 24, 3, 8, 1, 6, 57, 80, 77, 98, 55 ]
 let unorderedList = document.querySelector('ul')
-numbers.forEach((currentNumber) =>{
+
+const insertLiIntoUlTag = (currentNumber) =>{
     unorderedList.innerHTML += `<li>${currentNumber}</li>`
-})
+}
+numbers.forEach(insertLiIntoUlTag)
 
 /*
   03
@@ -31,7 +33,8 @@ numbers.forEach((currentNumber) =>{
     
 */
 let items = document.querySelectorAll('li')
-items.forEach((currentItem) =>{
+
+const changeLicolor = (currentItem) =>{
     let value = Number(currentItem.innerText)
     let isOdd = value % 2 !== 0
     if(isOdd){
@@ -40,7 +43,8 @@ items.forEach((currentItem) =>{
     else{
         currentItem.style.color = 'lightblue'
     }
-})
+}
+items.forEach(changeLicolor)
 
 
 
