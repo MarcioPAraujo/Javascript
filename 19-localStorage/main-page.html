@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=h1, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>You're in the main page</h1>
+    <button id="id-button">log out</button>
+    <script>
+        const body = document.querySelector('body');
+        const keepLoggedIn = localStorage.getItem('keepLoggedIn');
+        if (keepLoggedIn === 'true') {
+            const email = localStorage.getItem('email');
+            const password = localStorage.getItem('password');
+            body.innerHTML += `
+                <h2>Email: ${email}</h2>
+                <h2>Password: ${password}</h2>
+                <h2>Keep me logged in: ${localStorage.getItem('keepLoggedIn')}</h2>
+            `;
+        } else {
+            body.innerHTML += `
+                <h2>You chosed not save your loggin</h2>
+            `;
+        }
+        const button = document.getElementById('id-button');
+        button.addEventListener('click', () => {
+            localStorage.removeItem('email');
+            localStorage.removeItem('password');
+            localStorage.removeItem('keepLoggedIn');
+            location.href = './index.html';
+        })
+    </script>
+</body>
+</html>
